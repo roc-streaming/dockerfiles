@@ -14,6 +14,7 @@ RUN dnf install -y \
 # dependencies
 RUN dnf install -y \
     libuv-devel \
+    pulseaudio-libs-devel \
     sox-devel \
     make \
     cmake

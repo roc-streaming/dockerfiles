@@ -17,6 +17,7 @@ RUN apt-get install -y \
 
 # dependencies
 RUN apt-get install -y \
+    libpulse-dev \
     libsox-dev \
     libtool \
     autoconf \

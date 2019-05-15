@@ -21,6 +21,7 @@ RUN apt-get install -y \
 # dependencies
 RUN apt-get install -y \
     libuv1-dev \
+    libpulse-dev \
     libsox-dev \
     libcpputest-dev \
     intltool \

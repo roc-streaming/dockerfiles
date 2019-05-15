@@ -15,6 +15,7 @@ RUN yum -y install \
 
 # dependencies
 RUN yum -y install \
+    pulseaudio-libs-devel \
     sox-devel \
     libtool \
     autoconf \
