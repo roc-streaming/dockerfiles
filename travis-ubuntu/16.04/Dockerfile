@@ -13,21 +13,21 @@ RUN apt-get install -y \
     clang-3.6 \
     clang-3.7
 
-# tools
+# for 3rd-parties
 RUN apt-get install -y \
     pkg-config \
-    scons \
-    gengetopt \
-    doxygen \
-    graphviz
-
-# dependencies
-RUN apt-get install -y \
-    libuv1-dev \
-    libpulse-dev \
-    libsox-dev \
-    libcpputest-dev \
     intltool \
     m4 \
     make \
     cmake
+
+# for Roc
+RUN apt-get install -y \
+    scons \
+    gengetopt \
+    doxygen \
+    graphviz \
+    libuv1-dev \
+    libpulse-dev \
+    libsox-dev \
+    libcpputest-dev

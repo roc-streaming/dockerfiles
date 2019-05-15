@@ -7,16 +7,17 @@ RUN apt-get update
 # compilers
 RUN apt-get install -y g++
 
-# tools
-RUN apt-get install -y scons
-
-# dependencies
+# for 3rd-parties
 RUN apt-get install -y \
-    libasound2-dev \
-    libpulse-dev \
     libtool \
     intltool \
     autoconf \
     automake \
     make \
     cmake
+
+# for Roc
+RUN apt-get install -y \
+    scons \
+    libasound2-dev \
+    libpulse-dev

@@ -3,18 +3,18 @@ FROM fedora:latest
 # compilers
 RUN dnf install -y gcc-c++
 
-# tools
+# for 3rd-parties
 RUN dnf install -y \
     pkgconfig \
+    make \
+    cmake
+
+# for Roc
+RUN dnf install -y \
     scons \
     gengetopt \
     doxygen \
-    graphviz
-
-# dependencies
-RUN dnf install -y \
+    graphviz \
     libuv-devel \
     pulseaudio-libs-devel \
-    sox-devel \
-    make \
-    cmake
+    sox-devel

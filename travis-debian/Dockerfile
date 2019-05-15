@@ -7,20 +7,20 @@ RUN apt-get update
 # compilers
 RUN apt-get install -y g++
 
-# tools
+# for 3rd-parties
 RUN apt-get install -y \
     pkg-config \
-    scons \
-    gengetopt \
-    doxygen \
-    graphviz
-
-# dependencies
-RUN apt-get install -y \
-    libpulse-dev \
-    libsox-dev \
     libtool \
     autoconf \
     automake \
     make \
     cmake
+
+# for Roc
+RUN apt-get install -y \
+    scons \
+    gengetopt \
+    doxygen \
+    graphviz \
+    libpulse-dev \
+    libsox-dev
