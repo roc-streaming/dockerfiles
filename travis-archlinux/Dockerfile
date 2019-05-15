@@ -1,0 +1,24 @@
+FROM archlinux/base:latest
+
+RUN pacman -Sy
+
+# compilers
+RUN pacman --noconfirm -S gcc
+
+# for 3rd-parties
+RUN pacman --noconfirm -S \
+    grep \
+    gawk \
+    pkgconf \
+    make \
+    cmake
+
+# for Roc
+RUN pacman --noconfirm -S \
+    scons \
+    gengetopt \
+    doxygen \
+    graphviz \
+    libuv \
+    libpulse \
+    sox
