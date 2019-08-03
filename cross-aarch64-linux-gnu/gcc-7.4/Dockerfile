@@ -13,7 +13,7 @@ RUN apt-get install -y \
     gengetopt \
     wget \
     xz-utils \
-    qemu
+    qemu-user
 
 # roc dependencies
 RUN apt-get install -y \

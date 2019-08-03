@@ -20,7 +20,7 @@ RUN apt-get install -y \
     gengetopt \
     wget \
     unzip \
-    qemu
+    qemu-user
 
 # roc dependencies
 RUN apt-get install -y \
