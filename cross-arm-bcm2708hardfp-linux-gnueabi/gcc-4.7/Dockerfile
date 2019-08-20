@@ -29,6 +29,7 @@ RUN apt-get install -y \
     autoconf \
     automake \
     automake-1.15 \
+    pkg-config \
     make \
     cmake
 
