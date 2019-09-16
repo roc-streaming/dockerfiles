@@ -22,5 +22,6 @@ RUN apk add \
     graphviz \
     cpputest \
     libuv-dev \
+    libunwind-dev \
     pulseaudio-dev \
     sox-dev
