@@ -12,6 +12,7 @@ RUN dnf install -y \
 # for Roc
 RUN dnf install -y \
     scons \
+    ragel \
     gengetopt \
     doxygen \
     graphviz \

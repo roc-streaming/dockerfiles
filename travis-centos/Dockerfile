@@ -17,6 +17,7 @@ RUN yum -y install \
 # for Roc
 RUN yum -y install \
     scons \
+    ragel \
     gengetopt \
     doxygen \
     graphviz \

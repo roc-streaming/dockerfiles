@@ -17,6 +17,7 @@ RUN apk add \
 # for Roc
 RUN apk add \
     scons \
+    ragel \
     gengetopt \
     doxygen \
     graphviz \

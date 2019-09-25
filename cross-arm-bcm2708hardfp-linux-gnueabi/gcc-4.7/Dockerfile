@@ -17,6 +17,7 @@ RUN apt-get install -y g++
 # tools
 RUN apt-get install -y \
     scons \
+    ragel \
     gengetopt \
     wget \
     unzip \

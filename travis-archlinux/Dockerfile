@@ -16,6 +16,7 @@ RUN pacman --noconfirm -S \
 # for Roc
 RUN pacman --noconfirm -S \
     scons \
+    ragel \
     gengetopt \
     doxygen \
     graphviz \

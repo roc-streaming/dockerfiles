@@ -19,6 +19,7 @@ RUN apt-get install -y \
 # for Roc
 RUN apt-get install -y \
     scons \
+    ragel \
     gengetopt \
     doxygen \
     graphviz \
