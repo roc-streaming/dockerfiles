@@ -23,5 +23,6 @@ RUN apt-get install -y \
     gengetopt \
     doxygen \
     graphviz \
+    libunwind-dev \
     libpulse-dev \
     libsox-dev

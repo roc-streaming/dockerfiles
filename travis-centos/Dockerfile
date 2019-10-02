@@ -21,5 +21,6 @@ RUN yum -y install \
     gengetopt \
     doxygen \
     graphviz \
+    libunwind-devel \
     pulseaudio-libs-devel \
     sox-devel

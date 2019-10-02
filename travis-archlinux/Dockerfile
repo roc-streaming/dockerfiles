@@ -21,5 +21,6 @@ RUN pacman --noconfirm -S \
     doxygen \
     graphviz \
     libuv \
+    libunwind \
     libpulse \
     sox

@@ -26,6 +26,7 @@ RUN apt-get install -y \
     doxygen \
     graphviz \
     libuv1-dev \
+    libunwind-dev \
     libpulse-dev \
     libsox-dev \
     libcpputest-dev

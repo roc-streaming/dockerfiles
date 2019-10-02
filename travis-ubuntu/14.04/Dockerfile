@@ -29,4 +29,5 @@ RUN apt-get install -y \
     gengetopt \
     doxygen \
     graphviz \
+    libunwind8-dev \
     libsox-dev

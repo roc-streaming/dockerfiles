@@ -17,5 +17,6 @@ RUN dnf install -y \
     doxygen \
     graphviz \
     libuv-devel \
+    libunwind-devel \
     pulseaudio-libs-devel \
     sox-devel
