@@ -25,3 +25,8 @@ RUN apt-get install -y \
 # for checks
 RUN apt-get install -y \
     valgrind
+
+# for scons fmt
+RUN apt-get install -y  \
+    clang-format \
+    git
