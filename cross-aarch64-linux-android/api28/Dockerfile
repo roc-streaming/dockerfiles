@@ -31,12 +31,15 @@ RUN apt-get install -y \
 RUN NDK="r18"; \
     API="28"; \
     ARCH="arm64"; \
+    ABI="aarch64"; \
     wget -O /tmp/ndk.zip \
     "https://dl.google.com/android/repository/android-ndk-${NDK}-linux-x86_64.zip" && \
     ( cd /tmp && unzip -q /tmp/ndk.zip ) && \
     /tmp/android-ndk-${NDK}/build/tools/make_standalone_toolchain.py \
         --arch ${ARCH} --api ${API} --install-dir /opt/toolchain && \
-    rm -rf /tmp/android-ndk-${NDK} /tmp/ndk.zip
+    rm -rf /tmp/android-ndk-${NDK} /tmp/ndk.zip && \
+    ( cd /opt/toolchain/bin && rm ${ABI}-linux-android-gcc && \
+        ln -s ${ABI}-linux-android-clang ${ABI}-linux-android-gcc )
 
 # path
 ENV PATH="/opt/toolchain/bin:${PATH}"
