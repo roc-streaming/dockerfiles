@@ -19,7 +19,8 @@ RUN zypper -n install \
     gengetopt \
     doxygen \
     graphviz \
-    libunwind-devel \
-    libpulse-devel \
     libuv-devel \
+    libunwind-devel \
+    libatomic_ops-devel \
+    libpulse-devel \
     sox-devel

@@ -24,5 +24,6 @@ RUN apt-get install -y \
     doxygen \
     graphviz \
     libunwind-dev \
+    libatomic-ops-dev \
     libpulse-dev \
     libsox-dev

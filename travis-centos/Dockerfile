@@ -22,5 +22,6 @@ RUN yum -y install \
     doxygen \
     graphviz \
     libunwind-devel \
+    libatomic_ops-devel \
     pulseaudio-libs-devel \
     sox-devel
