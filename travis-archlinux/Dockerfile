@@ -3,7 +3,7 @@ FROM archlinux/base:latest
 RUN pacman -Sy
 
 # compilers
-RUN pacman --noconfirm -S gcc
+RUN pacman --noconfirm -S gcc libffi
 
 # for 3rd-parties
 RUN pacman --noconfirm -S \
