@@ -30,4 +30,5 @@ RUN apt-get install -y \
     libatomic-ops-dev \
     libpulse-dev \
     libsox-dev \
-    libcpputest-dev
+    libcpputest-dev \
+    libbenchmark-dev

@@ -26,4 +26,5 @@ RUN apt-get install -y \
     libunwind-dev \
     libatomic-ops-dev \
     libpulse-dev \
-    libsox-dev
+    libsox-dev \
+    libbenchmark-dev

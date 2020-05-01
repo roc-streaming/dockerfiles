@@ -20,4 +20,5 @@ RUN dnf install -y \
     libunwind-devel \
     libatomic_ops-devel \
     pulseaudio-libs-devel \
-    sox-devel
+    sox-devel \
+    google-benchmark-devel

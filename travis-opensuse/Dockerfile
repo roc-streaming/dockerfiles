@@ -23,4 +23,5 @@ RUN zypper -n install \
     libunwind-devel \
     libatomic_ops-devel \
     libpulse-devel \
-    sox-devel
+    sox-devel \
+    benchmark-devel
