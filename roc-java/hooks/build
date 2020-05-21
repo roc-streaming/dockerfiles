@@ -1,0 +1,23 @@
+#!/bin/bash
+
+{ cat hooks/images.csv; echo; } | {
+    read header
+    while IFS=";" read -r args tag; do
+        IFS="," read -ra args_list <<< "$args"
+        build_arg=""
+        for arg in "${args_list[@]}"; do
+            arg="${arg/ /_}"
+            build_arg="--build-arg ${arg} ${build_arg}"
+        done
+        if [ ! -z "$build_arg" ]; then
+            docker build \
+                $build_arg \
+                -f $DOCKERFILE_PATH \
+                -t $DOCKER_REPO:$tag .
+        else
+            docker build \
+                -f $DOCKERFILE_PATH \
+                -t $DOCKER_REPO:$tag .
+        fi
+    done
+}
