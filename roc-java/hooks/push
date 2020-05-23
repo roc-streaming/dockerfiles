@@ -1,8 +1,0 @@
-#!/bin/bash
-
-{ cat hooks/images.csv; echo; } | {
-    read header
-    while IFS=";" read -r args tag; do
-        docker push $DOCKER_REPO:$tag
-    done
-}

@@ -1,0 +1,36 @@
+#!/bin/bash
+
+{ cat hooks/images.csv; echo; } | {
+    read header
+    while IFS=";" read -r dockerfile args tag; do
+        IFS="," read -ra args_list <<< "${args}"
+        DOCKERFILE=$DOCKERFILE_PATH
+        BUILD_ARG=""
+        for arg in "${args_list[@]}"; do
+            arg="${arg/ /_}"
+            BUILD_ARG="${BUILD_ARG} --build-arg ${arg}"
+        done
+        if [ ! -z "${dockerfile}" ]; then
+            DOCKERFILE=$dockerfile
+            if [ -z "${tag}" ]; then
+                tag=$(cut -d "/" -f1 <<< $dockerfile)
+            fi
+        fi
+        context=.
+        depth=$(awk -F"/" '{print NF-1}' <<< "${DOCKERFILE}")
+        if [ "${depth}" != "0" ]; then
+            context=$(cut -d "/" -f1 <<< "${DOCKERFILE}")
+        fi
+        if [ ! -z "${BUILD_ARG}" ]; then
+            docker build \
+                -f $DOCKERFILE \
+                $BUILD_ARG \
+                -t $DOCKER_REPO:$tag $context
+        else
+            docker build \
+                -f $DOCKERFILE \
+                -t $DOCKER_REPO:$tag $context
+        fi
+    done
+}
+

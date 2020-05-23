@@ -35,7 +35,6 @@ RUN apt-get install -y \
     cmake
 
 ENV ANDROID_SDK_ROOT=$HOME/sdk
-ENV ANDROID_NDK_ROOT=$ANDROID_SDK_ROOT/ndk-bundle
 ENV PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
 
 # default env settings

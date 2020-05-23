@@ -1,0 +1,3 @@
+DOCKERFILE;ARGS (comma-separated list);TAG
+;OPENJDK=openjdk:10.0.2-jdk-slim;jdk10
+;OPENJDK=openjdk:11.0.7-jdk-slim-buster;jdk11
