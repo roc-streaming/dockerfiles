@@ -1,4 +1,2 @@
 DOCKERFILE;ARGS (comma-separated list);TAG
-;NDK=19;ndk19
-;NDK=20;ndk20
 ;NDK=21;ndk21
