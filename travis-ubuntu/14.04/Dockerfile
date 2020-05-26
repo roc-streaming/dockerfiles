@@ -30,5 +30,4 @@ RUN apt-get install -y \
     doxygen \
     graphviz \
     libunwind8-dev \
-    libatomic-ops-dev \
     libsox-dev

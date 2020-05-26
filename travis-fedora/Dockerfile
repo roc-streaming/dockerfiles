@@ -18,7 +18,6 @@ RUN dnf install -y \
     graphviz \
     libuv-devel \
     libunwind-devel \
-    libatomic_ops-devel \
     pulseaudio-libs-devel \
     sox-devel \
     google-benchmark-devel

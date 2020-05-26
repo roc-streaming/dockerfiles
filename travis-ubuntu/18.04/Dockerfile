@@ -27,8 +27,6 @@ RUN apt-get install -y \
     graphviz \
     libuv1-dev \
     libunwind-dev \
-    libatomic-ops-dev \
     libpulse-dev \
     libsox-dev \
-    libcpputest-dev \
-    libbenchmark-dev
+    libcpputest-dev

@@ -19,9 +19,6 @@ RUN yum -y install \
     scons \
     ragel \
     gengetopt \
-    doxygen \
-    graphviz \
     libunwind-devel \
-    libatomic_ops-devel \
     pulseaudio-libs-devel \
     sox-devel

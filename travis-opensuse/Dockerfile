@@ -21,7 +21,6 @@ RUN zypper -n install \
     graphviz \
     libuv-devel \
     libunwind-devel \
-    libatomic_ops-devel \
     libpulse-devel \
     sox-devel \
     benchmark-devel
