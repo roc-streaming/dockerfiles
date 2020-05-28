@@ -25,5 +25,6 @@ RUN apk add \
     cpputest \
     libuv-dev \
     libunwind-dev \
-    pulseaudio-dev \
-    sox-dev
+    speexdsp-dev \
+    sox-dev \
+    pulseaudio-dev

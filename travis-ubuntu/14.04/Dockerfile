@@ -30,4 +30,5 @@ RUN apt-get install -y \
     doxygen \
     graphviz \
     libunwind8-dev \
+    libspeexdsp-dev \
     libsox-dev

@@ -24,7 +24,7 @@ RUN apt-get install -y \
     doxygen \
     graphviz \
     libunwind-dev \
-    libatomic-ops-dev \
-    libpulse-dev \
+    libspeexdsp-dev \
     libsox-dev \
+    libpulse-dev \
     libbenchmark-dev

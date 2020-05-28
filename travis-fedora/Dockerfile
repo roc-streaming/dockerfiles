@@ -18,6 +18,7 @@ RUN dnf install -y \
     graphviz \
     libuv-devel \
     libunwind-devel \
-    pulseaudio-libs-devel \
+    speexdsp-devel \
     sox-devel \
+    pulseaudio-libs-devel \
     google-benchmark-devel

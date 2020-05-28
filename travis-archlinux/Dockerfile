@@ -22,5 +22,6 @@ RUN pacman --noconfirm -S \
     graphviz \
     libuv \
     libunwind \
-    libpulse \
-    sox
+    speexdsp \
+    sox \
+    libpulse

@@ -27,6 +27,7 @@ RUN apt-get install -y \
     graphviz \
     libuv1-dev \
     libunwind-dev \
-    libpulse-dev \
+    libspeexdsp-dev \
     libsox-dev \
+    libpulse-dev \
     libcpputest-dev

@@ -20,5 +20,6 @@ RUN yum -y install \
     ragel \
     gengetopt \
     libunwind-devel \
-    pulseaudio-libs-devel \
-    sox-devel
+    speex-devel \
+    sox-devel \
+    pulseaudio-libs-devel

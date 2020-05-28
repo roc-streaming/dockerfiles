@@ -10,7 +10,7 @@ RUN zypper -n install \
     autoconf \
     automake \
     make \
-    cmake 
+    cmake
 
 # for Roc
 RUN zypper -n install \
@@ -21,6 +21,7 @@ RUN zypper -n install \
     graphviz \
     libuv-devel \
     libunwind-devel \
-    libpulse-devel \
+    speexdsp-devel \
     sox-devel \
+    libpulse-devel \
     benchmark-devel
