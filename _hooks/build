@@ -1,6 +1,6 @@
 #!/bin/bash
 
-{ cat hooks/images.csv; echo; } | {
+{ cat hooks/images.csv; echo; } | grep '\S' | {
     read header
     while IFS=";" read -r dockerfile args tag; do
         IFS="," read -ra args_list <<< "${args}"
