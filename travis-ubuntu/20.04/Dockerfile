@@ -28,6 +28,7 @@ RUN apt-get install -y \
     ragel \
     gengetopt \
     doxygen \
+    pulseaudio \
     graphviz \
     libuv1-dev \
     libunwind-dev \
