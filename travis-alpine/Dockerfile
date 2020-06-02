@@ -16,7 +16,7 @@ RUN apk add \
 
 # for Roc
 RUN apk add \
-    python \
+    python3 \
     scons \
     ragel \
     gengetopt \

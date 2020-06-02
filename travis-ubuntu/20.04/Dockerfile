@@ -10,9 +10,11 @@ RUN apt-get install -y \
     g++-7 \
     g++-8 \
     g++-9 \
+    g++-10 \
     clang-7 \
     clang-8 \
-    clang-9
+    clang-9 \
+    clang-10
 
 # for 3rd-parties
 RUN apt-get install -y \
