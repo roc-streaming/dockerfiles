@@ -8,6 +8,8 @@ ARG CMAKE_VERSION="3.10.2.4988404"
 
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN dpkg --add-architecture i386
+
 RUN apt-get update
 
 # native compilers
@@ -34,8 +36,22 @@ RUN apt-get install -y \
     make \
     cmake
 
+# emulator dependencies
+RUN apt-get install -y --no-install-recommends \
+    libncurses5:i386 \
+    libc6:i386 \
+    libstdc++6:i386 \
+    lib32gcc1 \
+    lib32ncurses6 \
+    lib32z1 \
+    zlib1g:i386 \
+    qt5-default
+
 ENV ANDROID_SDK_ROOT=$HOME/sdk
 ENV PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
+ENV PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+ENV PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+ENV LD_LIBRARY_PATH=$ANDROID_SDK_ROOT/emulator/lib64:$ANDROID_SDK_ROOT/emulator/lib64/qt/lib
 
 # default env settings
 ENV API=$API
@@ -72,9 +88,14 @@ RUN mv -f $ANDROID_SDK_ROOT/cmdline-tools/tools/bin/sdkmanager.tmp $ANDROID_SDK_
 RUN mkdir -p $HOME/.android && touch $HOME/.android/repositories.cfg
 
 RUN yes | sdkmanager --licenses
+RUN yes | sdkmanager "emulator"
 
 VOLUME [ "${ANDROID_SDK_ROOT}" ]
 
 COPY entrypoint.sh /opt/entrypoint.sh
+COPY device.sh /usr/bin/device
+
+# expose adb server port
+EXPOSE 5037
 
 ENTRYPOINT ["/opt/entrypoint.sh"]
