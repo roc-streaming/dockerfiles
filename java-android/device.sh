@@ -55,7 +55,12 @@ function start_device() {
     fi
     adb devices | grep emulator | cut -f1 | while read line; do adb -s $line emu kill &> /dev/null; done
     echo "starting device \"${name}\""
-    emulator -avd "${name}" -no-audio -no-boot-anim -no-window -accel on -gpu off &> /dev/null &
+    flags="-no-audio -no-boot-anim -no-window -gpu off"
+    # check if hardware acceleration is available
+    (emulator -accel-check | grep -q 'is installed and usable') && \
+        flags="${flags} -accel on" || \
+        flags="${flags} -accel off"
+    emulator -avd "${name}" $flags &> /dev/null &
     boot_completed="0"
     while [ "$boot_completed" != "1" ]; do
         boot_completed=$(adb wait-for-device shell getprop sys.boot_completed | tr -d '\r')
