@@ -1,3 +1,0 @@
-DOCKERFILE;ARGS (comma-separated list);TAG
-;NDK=21;ndk21
-;NDK=21;latest

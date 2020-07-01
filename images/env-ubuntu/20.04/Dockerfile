@@ -39,3 +39,12 @@ RUN apt-get install -y \
     libpulse-dev \
     libcpputest-dev \
     libbenchmark-dev
+
+# for build checks
+RUN apt-get install -y  \
+    clang-format \
+    git
+
+# for runtime checks
+RUN apt-get install -y \
+    valgrind
