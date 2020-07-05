@@ -23,6 +23,7 @@ RUN apt-get install -y \
     python \
     unzip \
     wget \
+    git \
     sed
 
 # Roc dependencies
