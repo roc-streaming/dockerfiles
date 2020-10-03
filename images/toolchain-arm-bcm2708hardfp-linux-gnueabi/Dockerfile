@@ -1,5 +1,7 @@
 FROM debian:stable
 
+ARG MAJOR
+
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN dpkg --add-architecture i386

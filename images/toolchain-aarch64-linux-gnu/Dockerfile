@@ -1,5 +1,7 @@
 FROM debian:stable
 
+ARG  MAJOR
+
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
@@ -29,7 +31,6 @@ RUN apt-get install -y \
 
 # toolchain
 RUN TOOLCHAIN="aarch64-linux-gnu"; \
-    MAJOR="7.4"; \
     MINOR="1"; \
     DATE="2019.02"; \
     ARCH="x86_64"; \

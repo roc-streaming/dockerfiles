@@ -1,0 +1,4 @@
+DOCKERFILE;ARGS (comma-separated list);TAG
+;MAJOR=7.4;latest
+;MAJOR=4.9;4.9
+

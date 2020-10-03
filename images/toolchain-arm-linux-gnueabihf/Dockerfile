@@ -1,5 +1,7 @@
 FROM debian:stable
 
+ARG MAJOR
+
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
@@ -29,11 +31,12 @@ RUN apt-get install -y \
 
 # toolchain
 RUN TOOLCHAIN="arm-linux-gnueabihf"; \
-    RELEASE="4.9-2016.02"; \
+    MINOR="1"; \
+    DATE="2019.02"; \
     ARCH="x86_64"; \
-    ARCHIVE="gcc-linaro-${RELEASE}-${ARCH}_${TOOLCHAIN}"; \
-    MIRROR="http://releases.linaro.org/components/toolchain/binaries"; \
-    wget -O - "${MIRROR}/${RELEASE}/${TOOLCHAIN}/${ARCHIVE}.tar.xz" | \
+    ARCHIVE="gcc-linaro-${MAJOR}.${MINOR}-${DATE}-${ARCH}_${TOOLCHAIN}"; \
+    MIRROR="https://releases.linaro.org/components/toolchain/binaries"; \
+    wget -O - "${MIRROR}/${MAJOR}-${DATE}/${TOOLCHAIN}/${ARCHIVE}.tar.xz" | \
     tar -C /opt -xJf - && \
     mv /opt/${ARCHIVE} /opt/toolchain && \
     cp -a /opt/toolchain/${TOOLCHAIN}/libc/lib/* /opt/toolchain/${TOOLCHAIN}/lib
