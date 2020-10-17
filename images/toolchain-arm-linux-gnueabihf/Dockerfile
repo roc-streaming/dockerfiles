@@ -1,6 +1,8 @@
 FROM debian:stable
 
 ARG MAJOR
+ARG MINOR
+ARG DATE
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -31,8 +33,6 @@ RUN apt-get install -y \
 
 # toolchain
 RUN TOOLCHAIN="arm-linux-gnueabihf"; \
-    MINOR="1"; \
-    DATE="2019.02"; \
     ARCH="x86_64"; \
     ARCHIVE="gcc-linaro-${MAJOR}.${MINOR}-${DATE}-${ARCH}_${TOOLCHAIN}"; \
     MIRROR="https://releases.linaro.org/components/toolchain/binaries"; \
