@@ -1,0 +1,3 @@
+DOCKERFILE;ARGS (comma-separated list);TAG
+;MAJOR=7.4,MINOR=1,DATE=2019.02;gcc-7.4
+;MAJOR=7.4,MINOR=1,DATE=2019.02;latest

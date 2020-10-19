@@ -1,5 +1,9 @@
 FROM debian:stable
 
+ARG MAJOR
+ARG MINOR
+ARG DATE
+
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
@@ -28,10 +32,7 @@ RUN apt-get install -y \
     cmake
 
 # toolchain
-RUN TOOLCHAIN="aarch64-linux-gnu"; \
-    MAJOR="7.4"; \
-    MINOR="1"; \
-    DATE="2019.02"; \
+RUN TOOLCHAIN="arm-linux-gnueabihf"; \
     ARCH="x86_64"; \
     ARCHIVE="gcc-linaro-${MAJOR}.${MINOR}-${DATE}-${ARCH}_${TOOLCHAIN}"; \
     MIRROR="https://releases.linaro.org/components/toolchain/binaries"; \
@@ -41,7 +42,7 @@ RUN TOOLCHAIN="aarch64-linux-gnu"; \
     cp -a /opt/toolchain/${TOOLCHAIN}/libc/lib/* /opt/toolchain/${TOOLCHAIN}/lib
 
 # sysroot
-RUN ln -s /opt/toolchain/aarch64-linux-gnu /opt/sysroot
+RUN ln -s /opt/toolchain/arm-linux-gnueabihf /opt/sysroot
 
 # path
 ENV PATH="/opt/toolchain/bin:${PATH}"
