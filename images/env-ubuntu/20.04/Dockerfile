@@ -47,6 +47,6 @@ RUN apt-get install -y \
 
 # for checks
 RUN apt-get install -y  \
-    clang-format-9 \
+    clang-format \
     git \
     valgrind
