@@ -25,6 +25,7 @@ RUN apt-get install -y \
     gengetopt \
     doxygen \
     graphviz \
+    pulseaudio \
     libuv1-dev \
     libunwind-dev \
     libspeexdsp-dev \

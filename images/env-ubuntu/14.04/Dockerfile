@@ -29,6 +29,7 @@ RUN apt-get install -y \
     gengetopt \
     doxygen \
     graphviz \
+    pulseaudio \
     libunwind8-dev \
     libspeexdsp-dev \
     libsox-dev
