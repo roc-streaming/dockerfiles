@@ -1,4 +1,5 @@
 DOCKERFILE;ARGS (comma-separated list);TAG
 ;OPENJDK=openjdk:8u252-jdk-slim-buster;jdk8
 ;OPENJDK=openjdk:11.0.7-jdk-slim-buster;jdk11
-;OPENJDK=openjdk:11.0.7-jdk-slim-buster;latest
+;OPENJDK=openjdk:15.0.2-jdk-slim-buster;jdk15
+;OPENJDK=openjdk:15.0.2-jdk-slim-buster;latest
