@@ -20,6 +20,7 @@ RUN apt-get install -y \
     scons \
     ragel \
     gengetopt \
+    ninja-build \
     python \
     unzip \
     wget \
