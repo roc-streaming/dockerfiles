@@ -20,7 +20,6 @@ RUN apt-get install -y \
     scons \
     ragel \
     gengetopt \
-    ninja-build \
     python \
     unzip \
     wget \
@@ -95,7 +94,6 @@ RUN yes | sdkmanager "emulator"
 VOLUME [ "${ANDROID_SDK_ROOT}" ]
 
 COPY entrypoint.sh /opt/entrypoint.sh
-COPY device.sh /usr/bin/device
 
 # expose adb server port
 EXPOSE 5037
