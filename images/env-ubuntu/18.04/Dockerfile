@@ -13,10 +13,14 @@ RUN apt-get install -y \
 # for 3rd-parties
 RUN apt-get install -y \
     pkg-config \
+    libtool \
     intltool \
     m4 \
+    autoconf \
+    automake \
     make \
-    cmake
+    cmake \
+    python
 
 # for Roc
 RUN apt-get install -y \

@@ -11,10 +11,13 @@ RUN apt-get install -y g++
 RUN apt-get install -y \
     pkg-config \
     libtool \
+    intltool \
+    m4 \
     autoconf \
     automake \
     make \
-    cmake
+    cmake \
+    python
 
 # for Roc
 RUN apt-get install -y \

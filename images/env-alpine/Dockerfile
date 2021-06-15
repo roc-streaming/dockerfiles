@@ -9,6 +9,8 @@ RUN apk add g++
 RUN apk add \
     pkgconfig \
     libtool \
+    intltool \
+    m4 \
     autoconf \
     automake \
     make \

@@ -7,10 +7,13 @@ RUN zypper -n install gcc-c++
 RUN zypper -n install \
     pkg-config \
     libtool \
+    intltool \
+    m4 \
     autoconf \
     automake \
     make \
-    cmake
+    cmake \
+    python
 
 # for Roc
 RUN zypper -n install \

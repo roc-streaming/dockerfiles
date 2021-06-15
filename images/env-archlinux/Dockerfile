@@ -16,8 +16,14 @@ RUN pacman --noconfirm -S \
     grep \
     gawk \
     pkgconf \
+    libtool \
+    intltool \
+    m4 \
+    autoconf \
+    automake \
     make \
-    cmake
+    cmake \
+    python
 
 # for Roc
 RUN pacman --noconfirm -S \

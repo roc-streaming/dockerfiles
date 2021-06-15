@@ -6,8 +6,14 @@ RUN dnf install -y gcc-c++
 # for 3rd-parties
 RUN dnf install -y \
     pkgconfig \
+    libtool \
+    intltool \
+    m4 \
+    autoconf \
+    automake \
     make \
-    cmake
+    cmake \
+    python
 
 # for Roc
 RUN dnf install -y \
