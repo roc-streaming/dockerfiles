@@ -31,7 +31,7 @@ RUN apt-get install -y \
     intltool \
     autoconf \
     automake \
-    automake-1.15 \
+    automake1.11 \
     pkg-config \
     make \
     cmake

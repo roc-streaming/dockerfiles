@@ -1,0 +1,32 @@
+name: "build"
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+  pull_request:
+
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  make-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Login
+        run: |
+          docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build images
+        run: |
+          ./scripts/run_all.sh --build
+
+      - name: Push images
+        run: |
+          ./scripts/run_all.sh --push

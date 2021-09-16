@@ -1,7 +1,22 @@
 # Dockerfiles for Roc Toolkit
 
-This repo provides dockerfiles for Travis builds and end-user images for cross-compilation.
+[![build](https://github.com/roc-streaming/dockerfiles/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/roc-streaming/dockerfiles/actions/workflows/build.yml)
 
-Docker images are built using Docker Hub automated builds. The corresponding Docker Hub organization is [rocstreaming](https://hub.docker.com/u/rocstreaming).
+This repo provides dockerfiles for CI builds and end-user images for cross-compilation.
+
+Docker images are built using Github Actions and then pushed to Docker Hub. The corresponding Docker Hub organization is [rocstreaming](https://hub.docker.com/u/rocstreaming).
 
 Documentation for this process is [available here](https://roc-streaming.org/toolkit/docs/development/continuous_integration.html).
+
+Build all images locally:
+
+```
+./scripts/run_all.sh --build
+```
+
+Build specific image locally:
+
+```
+cd images/<image_name>
+../../scripts/build.sh
+```
