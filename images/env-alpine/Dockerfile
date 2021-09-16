@@ -30,3 +30,7 @@ RUN apk add \
     speexdsp-dev \
     sox-dev \
     pulseaudio-dev
+
+# extras
+RUN apk add \
+    git

@@ -28,3 +28,7 @@ RUN zypper -n install \
     sox-devel \
     libpulse-devel \
     benchmark-devel
+
+# extras
+RUN zypper -n install \
+    git

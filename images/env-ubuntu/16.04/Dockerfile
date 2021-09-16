@@ -39,3 +39,7 @@ RUN apt-get install -y \
     libsox-dev \
     libpulse-dev \
     libcpputest-dev
+
+# extras
+RUN apt-get install -y \
+    git

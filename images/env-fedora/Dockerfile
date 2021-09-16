@@ -28,3 +28,7 @@ RUN dnf install -y \
     sox-devel \
     pulseaudio-libs-devel \
     google-benchmark-devel
+
+# extras
+RUN dnf install -y \
+    git

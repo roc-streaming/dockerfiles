@@ -34,3 +34,7 @@ RUN apt-get install -y \
     libunwind8-dev \
     libspeexdsp-dev \
     libsox-dev
+
+# extras
+RUN apt-get install -y \
+    git

@@ -31,6 +31,10 @@ RUN apt-get install -y \
     make \
     cmake
 
+# extras
+RUN apt-get install -y \
+    git
+
 # toolchain
 RUN TOOLCHAIN="arm-linux-gnueabihf"; \
     ARCH="x86_64"; \

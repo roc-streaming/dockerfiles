@@ -37,3 +37,7 @@ RUN pacman --noconfirm -S \
     speexdsp \
     sox \
     libpulse
+
+# extras
+RUN pacman --noconfirm -S \
+    git

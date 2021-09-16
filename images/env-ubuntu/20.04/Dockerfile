@@ -45,7 +45,7 @@ RUN apt-get install -y \
     libcpputest-dev \
     libbenchmark-dev
 
-# for checks
+# for extras
 RUN apt-get install -y  \
     clang-format \
     git \

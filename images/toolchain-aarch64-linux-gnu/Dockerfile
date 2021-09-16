@@ -31,6 +31,10 @@ RUN apt-get install -y \
     make \
     cmake
 
+# extras
+RUN apt-get install -y \
+    git
+
 # toolchain
 RUN TOOLCHAIN="aarch64-linux-gnu"; \
     ARCH="x86_64"; \

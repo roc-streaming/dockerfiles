@@ -36,6 +36,10 @@ RUN apt-get install -y \
     make \
     cmake
 
+# extras
+RUN apt-get install -y \
+    git
+
 # toolchain
 RUN wget -O /tmp/tools.zip \
     https://codeload.github.com/raspberrypi/tools/zip/${COMMIT} && \

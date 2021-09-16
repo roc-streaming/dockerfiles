@@ -31,3 +31,7 @@ RUN apt-get install -y \
     libsox-dev \
     libpulse-dev \
     libbenchmark-dev
+
+# extras
+RUN apt-get install -y \
+    git
