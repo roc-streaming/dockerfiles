@@ -3,4 +3,5 @@ DOCKERFILE;ARGS (comma-separated list);TAG
 16.04/Dockerfile;;
 18.04/Dockerfile;;
 20.04/Dockerfile;;
-20.04/Dockerfile;;latest
+22.04/Dockerfile;;
+22.04/Dockerfile;;latest
