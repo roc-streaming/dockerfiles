@@ -26,6 +26,7 @@ RUN apt-get install -y \
     automake \
     make \
     cmake \
+    meson \
     python3
 
 # for Roc
@@ -40,6 +41,7 @@ RUN apt-get install -y \
     libunwind-dev \
     libspeexdsp-dev \
     libsox-dev \
+    libsndfile-dev \
     libpulse-dev \
     libcpputest-dev \
     libbenchmark-dev
