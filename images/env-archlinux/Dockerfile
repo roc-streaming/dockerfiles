@@ -30,6 +30,7 @@ RUN pacman --noconfirm -S \
     libunwind \
     speexdsp \
     sox \
+    gsm \
     libpulse
 
 # extras
