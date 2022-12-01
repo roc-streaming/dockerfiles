@@ -33,4 +33,5 @@ RUN apk add \
 
 # extras
 RUN apk add \
+    bash \
     git
