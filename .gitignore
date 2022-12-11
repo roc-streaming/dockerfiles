@@ -1,0 +1,9 @@
+# emacs
+.#*
+.dir-locals.el
+
+# vim
+*.sw[nop]
+
+# ctags
+/tags
