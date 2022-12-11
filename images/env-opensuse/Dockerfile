@@ -1,33 +1,34 @@
 FROM opensuse/leap:latest
 
 # compilers
-RUN zypper -n install gcc-c++
+RUN zypper -n install \
+    gcc-c++
 
 # for 3rd-parties
 RUN zypper -n install \
-    pkg-config \
-    libtool \
-    intltool \
-    m4 \
     autoconf \
     automake \
-    make \
     cmake \
+    intltool \
+    libtool \
+    m4 \
+    make \
+    pkg-config \
     python
 
 # for Roc
 RUN zypper -n install \
-    scons \
-    ragel \
-    gengetopt \
+    benchmark-devel \
     doxygen \
+    gengetopt \
     graphviz \
-    libuv-devel \
-    libunwind-devel \
-    speexdsp-devel \
-    sox-devel \
     libpulse-devel \
-    benchmark-devel
+    libunwind-devel \
+    libuv-devel \
+    ragel \
+    scons \
+    sox-devel \
+    speexdsp-devel
 
 # extras
 RUN zypper -n install \

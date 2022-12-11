@@ -9,32 +9,33 @@ RUN apt-get update
 
 # toolchain dependencies
 RUN apt-get install -y \
-    libstdc++6:i386 \
     libgcc1:i386 \
+    libstdc++6:i386 \
     zlib1g:i386
 
 # native compilers
-RUN apt-get install -y g++
+RUN apt-get install -y \
+    g++
 
 # tools
 RUN apt-get install -y \
-    scons \
-    ragel \
     gengetopt \
-    wget \
+    qemu-user \
+    ragel \
+    scons \
     unzip \
-    qemu-user
+    wget
 
 # roc dependencies
 RUN apt-get install -y \
-    libtool \
-    intltool \
     autoconf \
     automake \
     automake1.11 \
-    pkg-config \
+    cmake \
+    intltool \
+    libtool \
     make \
-    cmake
+    pkg-config
 
 # extras
 RUN apt-get install -y \
