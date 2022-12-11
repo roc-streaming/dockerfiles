@@ -6,44 +6,44 @@ RUN apt-get update
 
 # compilers
 RUN apt-get install -y \
-    g++ \
-    g++-7 \
-    g++-8 \
-    g++-9 \
-    g++-10 \
     clang \
+    clang-10 \
     clang-7 \
     clang-8 \
     clang-9 \
-    clang-10
+    g++ \
+    g++-10 \
+    g++-7 \
+    g++-8 \
+    g++-9
 
 # for 3rd-parties
 RUN apt-get install -y \
-    pkg-config \
-    libtool \
-    intltool \
-    m4 \
     autoconf \
     automake \
-    make \
     cmake \
+    intltool \
+    libtool \
+    m4 \
+    make \
+    pkg-config \
     python
 
 # for Roc
 RUN apt-get install -y \
-    scons \
-    ragel \
-    gengetopt \
     doxygen \
-    pulseaudio \
+    gengetopt \
     graphviz \
-    libuv1-dev \
-    libunwind-dev \
-    libspeexdsp-dev \
-    libsox-dev \
-    libpulse-dev \
+    libbenchmark-dev \
     libcpputest-dev \
-    libbenchmark-dev
+    libpulse-dev \
+    libsox-dev \
+    libspeexdsp-dev \
+    libunwind-dev \
+    libuv1-dev \
+    pulseaudio \
+    ragel \
+    scons
 
 # for extras
 RUN apt-get install -y  \

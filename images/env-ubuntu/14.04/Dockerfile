@@ -6,34 +6,34 @@ RUN apt-get update
 
 # compilers
 RUN apt-get install -y \
+    clang-3.4 \
     g++ \
     g++-4.4 \
-    g++-4.6 \
-    clang-3.4
+    g++-4.6
 
 # for 3rd-parties
 RUN apt-get install -y \
-    pkg-config \
-    libtool \
-    intltool \
-    m4 \
     autoconf \
     automake \
-    make \
     cmake \
+    intltool \
+    libtool \
+    m4 \
+    make \
+    pkg-config \
     python
 
 # for Roc
 RUN apt-get install -y \
-    scons \
-    ragel \
-    gengetopt \
     doxygen \
+    gengetopt \
     graphviz \
-    pulseaudio \
-    libunwind8-dev \
+    libsox-dev \
     libspeexdsp-dev \
-    libsox-dev
+    libunwind8-dev \
+    pulseaudio \
+    ragel \
+    scons
 
 # extras
 RUN apt-get install -y \

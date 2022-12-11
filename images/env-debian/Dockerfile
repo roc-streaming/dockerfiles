@@ -5,32 +5,33 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 # compilers
-RUN apt-get install -y g++
+RUN apt-get install -y \
+    g++
 
 # for 3rd-parties
 RUN apt-get install -y \
-    pkg-config \
-    libtool \
-    intltool \
-    m4 \
     autoconf \
     automake \
-    make \
     cmake \
+    intltool \
+    libtool \
+    m4 \
+    make \
+    pkg-config \
     python
 
 # for Roc
 RUN apt-get install -y \
-    scons \
-    ragel \
-    gengetopt \
     doxygen \
+    gengetopt \
     graphviz \
-    libunwind-dev \
-    libspeexdsp-dev \
-    libsox-dev \
+    libbenchmark-dev \
     libpulse-dev \
-    libbenchmark-dev
+    libsox-dev \
+    libspeexdsp-dev \
+    libunwind-dev \
+    ragel \
+    scons
 
 # extras
 RUN apt-get install -y \

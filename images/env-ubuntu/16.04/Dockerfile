@@ -6,39 +6,39 @@ RUN apt-get update
 
 # compilers
 RUN apt-get install -y \
+    clang-3.6 \
+    clang-3.7 \
     g++ \
     g++-4.8 \
     g++-4.9 \
-    g++-5 \
-    clang-3.6 \
-    clang-3.7
+    g++-5
 
 # for 3rd-parties
 RUN apt-get install -y \
-    pkg-config \
-    libtool \
-    intltool \
-    m4 \
     autoconf \
     automake \
-    make \
     cmake \
+    intltool \
+    libtool \
+    m4 \
+    make \
+    pkg-config \
     python
 
 # for Roc
 RUN apt-get install -y \
-    scons \
-    ragel \
-    gengetopt \
     doxygen \
+    gengetopt \
     graphviz \
-    pulseaudio \
-    libuv1-dev \
-    libunwind-dev \
-    libspeexdsp-dev \
-    libsox-dev \
+    libcpputest-dev \
     libpulse-dev \
-    libcpputest-dev
+    libsox-dev \
+    libspeexdsp-dev \
+    libunwind-dev \
+    libuv1-dev \
+    pulseaudio \
+    ragel \
+    scons
 
 # extras
 RUN apt-get install -y \

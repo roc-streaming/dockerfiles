@@ -1,33 +1,34 @@
 FROM fedora:latest
 
 # compilers
-RUN dnf install -y gcc-c++
+RUN dnf install -y \
+    gcc-c++
 
 # for 3rd-parties
 RUN dnf install -y \
-    pkgconfig \
-    libtool \
-    intltool \
-    m4 \
     autoconf \
     automake \
-    make \
     cmake \
+    intltool \
+    libtool \
+    m4 \
+    make \
+    pkgconfig \
     python
 
 # for Roc
 RUN dnf install -y \
-    scons \
-    ragel \
-    gengetopt \
     doxygen \
+    gengetopt \
+    google-benchmark-devel \
     graphviz \
-    libuv-devel \
     libunwind-devel \
-    speexdsp-devel \
-    sox-devel \
+    libuv-devel \
     pulseaudio-libs-devel \
-    google-benchmark-devel
+    ragel \
+    scons \
+    sox-devel \
+    speexdsp-devel
 
 # extras
 RUN dnf install -y \

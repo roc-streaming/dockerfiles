@@ -3,33 +3,34 @@ FROM alpine
 RUN apk update
 
 # compilers
-RUN apk add g++
+RUN apk add \
+    g++
 
 # for 3rd-parties
 RUN apk add \
-    pkgconfig \
-    libtool \
-    intltool \
-    m4 \
     autoconf \
     automake \
+    cmake \
+    intltool \
+    libtool \
+    m4 \
     make \
-    cmake
+    pkgconfig
 
 # for Roc
 RUN apk add \
-    python3 \
-    scons \
-    ragel \
-    gengetopt \
-    doxygen \
-    graphviz \
     cpputest \
-    libuv-dev \
+    doxygen \
+    gengetopt \
+    graphviz \
     libunwind-dev \
-    speexdsp-dev \
+    libuv-dev \
+    pulseaudio-dev \
+    python3 \
+    ragel \
+    scons \
     sox-dev \
-    pulseaudio-dev
+    speexdsp-dev
 
 # extras
 RUN apk add \
