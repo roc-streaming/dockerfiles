@@ -39,6 +39,7 @@ RUN apt-get install -y \
     libpulse-dev \
     libsox-dev \
     libspeexdsp-dev \
+    libssl-dev \
     libunwind-dev \
     libuv1-dev \
     pulseaudio \

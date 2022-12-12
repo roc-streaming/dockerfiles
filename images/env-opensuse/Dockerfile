@@ -22,6 +22,7 @@ RUN zypper -n install \
     doxygen \
     gengetopt \
     graphviz \
+    libopenssl-3-devel \
     libpulse-devel \
     libunwind-devel \
     libuv-devel \

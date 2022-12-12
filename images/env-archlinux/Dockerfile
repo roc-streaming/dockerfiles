@@ -30,6 +30,7 @@ RUN pacman --noconfirm -S \
     libpulse \
     libunwind \
     libuv \
+    openssl \
     ragel \
     scons \
     sox \
