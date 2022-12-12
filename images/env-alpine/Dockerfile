@@ -25,6 +25,7 @@ RUN apk add \
     graphviz \
     libunwind-dev \
     libuv-dev \
+    openssl-dev \
     pulseaudio-dev \
     python3 \
     ragel \

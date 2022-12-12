@@ -24,6 +24,7 @@ RUN dnf install -y \
     graphviz \
     libunwind-devel \
     libuv-devel \
+    openssl-devel \
     pulseaudio-libs-devel \
     ragel \
     scons \

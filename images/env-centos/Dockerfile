@@ -19,6 +19,7 @@ RUN yum -y install \
 RUN yum -y install \
     gengetopt \
     libunwind-devel \
+    openssl11-devel \
     pulseaudio-libs-devel \
     ragel \
     scons \
