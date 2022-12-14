@@ -1,19 +1,23 @@
 name: "build"
 
 on:
-  workflow_dispatch:
-
   push:
     branches:
       - main
 
   pull_request:
 
+  workflow_dispatch:
+
   schedule:
     - cron: '0 0 1 * *'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  make-images:
+  images:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
