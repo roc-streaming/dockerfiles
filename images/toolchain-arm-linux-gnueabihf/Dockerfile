@@ -8,33 +8,24 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
 
-# native compilers
-RUN apt-get install -y \
-    g++
-
-# tools
-RUN apt-get install -y \
-    gengetopt \
-    qemu-user \
-    ragel \
-    scons \
-    wget \
-    xz-utils
-
-# roc dependencies
 RUN apt-get install -y \
     autoconf \
     automake \
     automake1.11 \
     cmake \
+    g++ \
+    gengetopt \
+    git \
     intltool \
     libtool \
     make \
-    pkg-config
-
-# extras
-RUN apt-get install -y \
-    git
+    meson \
+    pkg-config \
+    qemu-user \
+    ragel \
+    scons \
+    wget \
+    xz-utils
 
 # toolchain
 RUN TOOLCHAIN="arm-linux-gnueabihf"; \

@@ -7,39 +7,30 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN dpkg --add-architecture i386
 RUN apt-get update
 
-# toolchain dependencies
 RUN apt-get install -y \
-    libgcc1:i386 \
-    libstdc++6:i386 \
-    zlib1g:i386
-
-# native compilers
-RUN apt-get install -y \
-    g++
-
-# tools
-RUN apt-get install -y \
+    autoconf \
+    automake \
+    automake1.11 \
+    cmake \
+    g++ \
     gengetopt \
+    git \
+    intltool \
+    libtool \
+    make \
+    meson \
+    pkg-config \
     qemu-user \
     ragel \
     scons \
     unzip \
     wget
 
-# roc dependencies
+# toolchain dependencies
 RUN apt-get install -y \
-    autoconf \
-    automake \
-    automake1.11 \
-    cmake \
-    intltool \
-    libtool \
-    make \
-    pkg-config
-
-# extras
-RUN apt-get install -y \
-    git
+    libgcc1:i386 \
+    libstdc++6:i386 \
+    zlib1g:i386
 
 # toolchain
 RUN wget -O /tmp/tools.zip \
