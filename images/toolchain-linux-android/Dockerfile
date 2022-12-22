@@ -38,3 +38,4 @@ RUN wget -q -O /tmp/ndk.zip \
 
 # path
 ENV PATH="/opt/android-ndk-r${NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin:${PATH}"
+ENV ANDROID_NDK_ROOT="/opt/android-ndk-r${NDK}"
