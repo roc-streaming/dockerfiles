@@ -8,15 +8,8 @@ Docker images are built using Github Actions and then pushed to Docker Hub. The 
 
 Documentation for this process is [available here](https://roc-streaming.org/toolkit/docs/development/continuous_integration.html).
 
-Build all images locally:
+To build image locally, run:
 
 ```
-./scripts/run_all.sh --build
-```
-
-Build specific image locally:
-
-```
-cd images/<image_name>
-../../scripts/build.sh
+./make.sh images/<image_name>
 ```

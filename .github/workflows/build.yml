@@ -19,16 +19,73 @@ concurrency:
 jobs:
   images:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - env-alpine
+          - env-android
+          - env-archlinux
+          - env-centos
+          - env-debian
+          - env-fedora
+          - env-opensuse
+          - env-ubuntu
+          - env-ubuntu-minimal
+          - toolchain-aarch64-linux-gnu
+          - toolchain-arm-bcm2708hardfp-linux-gnueabi
+          - toolchain-arm-linux-gnueabihf
+          - toolchain-linux-android
+
+    name: ${{ matrix.image }}
+
+    env:
+      CACHE_FROM: /tmp/.buildx-cache
+      CACHE_TO: /tmp/.buildx-cache-new
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Build images
-        run: |
-          ./scripts/run_all.sh --build
+      - name: Setup cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.CACHE_FROM }}
+          key: ${{ matrix.image }}-${{ github.sha }}
+          restore-keys: |
+            ${{ matrix.image }}-
 
-      - name: Push images
-        if: ${{ github.repository_owner == 'roc-streaming' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      - name: Setup buildx
         run: |
-          docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
-          ./scripts/run_all.sh --push
+          docker buildx create --use
+
+      - name: Setup env
+        if: |
+          github.repository_owner == 'roc-streaming' &&
+          github.event_name == 'push' &&
+          github.ref == 'refs/heads/main'
+        run: |
+          echo "ENABLE_PUSH=1" >> $GITHUB_ENV
+
+      - name: Run docker
+        run: |
+          if [[ $ENABLE_PUSH = 1 ]]; then \
+            docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+            ./make.sh --push images/${{ matrix.image }}
+          else
+            ./make.sh images/${{ matrix.image }}
+          fi
+
+      - name: Move cache
+        if: always()
+        run: |
+          rm -rf ${CACHE_FROM}
+          mv ${CACHE_TO} ${CACHE_FROM}
+
+      - name: Save cache
+        uses: actions/cache/save@v3
+        if: always()
+        with:
+          path: ${{ env.CACHE_FROM }}
+          key: ${{ matrix.image }}-${{ github.sha }}
