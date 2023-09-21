@@ -13,7 +13,7 @@ RUN apt-get install -y \
 # tools
 RUN apt-get install -y \
     gengetopt \
-    python \
+    python3 \
     ragel \
     scons \
     unzip \

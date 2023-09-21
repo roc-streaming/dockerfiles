@@ -18,7 +18,7 @@ RUN apt-get install -y \
     m4 \
     make \
     pkg-config \
-    python
+    python3
 
 # for Roc
 RUN apt-get install -y \
