@@ -31,6 +31,7 @@ jobs:
           - env-debian
           - env-fedora
           - env-opensuse
+          - env-sphinx
           - env-ubuntu
           - env-ubuntu-minimal
           - toolchain-aarch64-linux-gnu
