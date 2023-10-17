@@ -37,3 +37,6 @@ RUN apt-get install -y \
 # extras
 RUN apt-get install -y \
     git
+
+# rebuild font cache
+RUN fc-cache -fr
