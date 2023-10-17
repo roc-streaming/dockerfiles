@@ -11,5 +11,23 @@ Documentation for this process is [available here](https://roc-streaming.org/too
 To build image locally, run:
 
 ```
-./make.sh images/<image_name>
+./make.sh [OPTIONS...] IMAGE[:TAG]
+```
+
+For example:
+
+```
+./make.sh env-ubuntu
+```
+
+Or:
+
+```
+./make.sh env-ubuntu:22.04
+```
+
+For the list of available options, run:
+
+```
+./make.sh --help
 ```

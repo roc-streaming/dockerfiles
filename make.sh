@@ -3,23 +3,64 @@
 set -euo pipefail
 
 run_cmd() {
+    dry_run="$1"
+    shift
     echo "-- $*"
-    "$@"
+    if [ "$dry_run" = 0 ]; then
+        "$@" || exit 1
+    fi
 }
 
+help() {
+    echo "Usage: $0 [OPTIONS...] IMAGE[:TAG]"
+    echo
+    echo "   -n, --dry-run       don't run commands, just print them"
+    echo "   -p, --push          push image after building"
+    echo "   -C, --no-cache      pass --no-cache to docker build"
+    echo "   -P, --no-pull       don't pass --pull to docker build"
+    echo "   -h, --help          print this message"
+    echo
+}
+
+dry_run=0
+no_cache=0
+no_pull=0
 enable_push=0
-if [[ "$1" = --push ]]; then
-    enable_push=1
+
+while [ "${1:-}" != "" ]; do
+    case "$1" in
+        "-h"|"--help")
+            help
+            exit
+            ;;
+        "-n"|"--dry-run")
+            dry_run=1
+            ;;
+        "-p"|"--push")
+            enable_push=1
+            ;;
+        "-C"|"--no-cache")
+            no_cache=1
+            ;;
+        "-P"|"--no-pull")
+            no_pull=1
+            ;;
+        *)
+            if echo "$1" | grep -qF ":"; then
+                image_shortname="$(echo "$1" | cut -d: -f1)"
+                image_tag="$(echo "$1" | cut -d: -f2)"
+            else
+                image_shortname="$1"
+                image_tag=""
+            fi
+            image_fullname="rocstreaming/$image_shortname"
+            image_dir="images/$image_shortname"
+            ;;
+    esac
     shift
-fi
+done
 
-image_path="$1"
-image_name=rocstreaming/$(basename "$image_path")
-
-cd "$image_path"
-
-num_images="$(sed 1d images.csv | wc -l | cut -d' ' -f1)"
-cur_image=1
+cd "$image_dir"
 
 { cat images.csv; echo; } | grep '\S' | {
     read header
@@ -32,19 +73,36 @@ cur_image=1
             tag="$(cut -d "/" -f1 <<< "$dockerfile")"
         fi
 
+        if [ ! -z "$image_tag" ] && [ "$tag" != "$image_tag" ]; then
+            continue
+        fi
+
         context="."
         depth="$(awk -F"/" '{print NF-1}' <<< "$dockerfile")"
         if [ "$depth" != "0" ]; then
             context="$(cut -d "/" -f1 <<< "$dockerfile")"
         fi
 
-        printf '%s \033[1;35m[%d/%d] processing image %s\033[0m\n' \
-               "--" "$cur_image" "$num_images" "$image_name:$tag"
+        printf '%s \033[1;35mprocessing image %s\033[0m\n' \
+               "--" "$image_fullname:$tag"
 
-        build_args=(
-            --pull
+        build_args=()
+
+        if [ "$no_pull" = 0 ]; then
+            build_args+=(
+                --pull
+            )
+        fi
+
+        if [ "$no_cache" = 1 ]; then
+            build_args+=(
+                --no-cache
+            )
+        fi
+
+        build_args+=(
             -f "$dockerfile"
-            -t "$image_name:$tag"
+            -t "$image_fullname:$tag"
             --output "type=docker"
         )
 
@@ -67,15 +125,10 @@ cur_image=1
             "$context"
         )
 
-        run_cmd docker buildx build "${build_args[@]}"
+        run_cmd "$dry_run" docker buildx build "${build_args[@]}"
 
         if [[ "$enable_push" = 1 ]]; then
-            run_cmd docker push "$image_name:$tag"
+            run_cmd "$dry_run" docker push "$image_fullname:$tag"
         fi
-
-        (( cur_image++ ))
     done
 }
-
-printf '%s \033[1;35msuccessfully processed %d image(s)\033[0m\n' \
-       "--" "$num_images"

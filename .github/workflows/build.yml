@@ -32,7 +32,12 @@ jobs:
           - env-fedora
           - env-opensuse
           - env-sphinx
-          - env-ubuntu
+          - env-ubuntu:14.04
+          - env-ubuntu:16.04
+          - env-ubuntu:18.04
+          - env-ubuntu:20.04
+          - env-ubuntu:22.04
+          - env-ubuntu:latest
           - env-ubuntu-minimal
           - toolchain-aarch64-linux-gnu
           - toolchain-arm-bcm2708hardfp-linux-gnueabi
@@ -73,9 +78,9 @@ jobs:
         run: |
           if [[ $ENABLE_PUSH = 1 ]]; then \
             docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
-            ./make.sh --push images/${{ matrix.image }}
+            ./make.sh --push ${{ matrix.image }}
           else
-            ./make.sh images/${{ matrix.image }}
+            ./make.sh ${{ matrix.image }}
           fi
 
       - name: Move cache
