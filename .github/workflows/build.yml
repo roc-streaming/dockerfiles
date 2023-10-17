@@ -25,20 +25,23 @@ jobs:
       matrix:
         image:
           - env-alpine
-          - env-android
+          - env-android:jdk8
+          - env-android:jdk11
+          - env-android:jdk15
+          - env-android:latest
           - env-archlinux
           - env-centos
           - env-debian
           - env-fedora
           - env-opensuse
           - env-sphinx
+          - env-ubuntu-minimal
           - env-ubuntu:14.04
           - env-ubuntu:16.04
           - env-ubuntu:18.04
           - env-ubuntu:20.04
           - env-ubuntu:22.04
           - env-ubuntu:latest
-          - env-ubuntu-minimal
           - toolchain-aarch64-linux-gnu
           - toolchain-arm-bcm2708hardfp-linux-gnueabi
           - toolchain-arm-linux-gnueabihf
