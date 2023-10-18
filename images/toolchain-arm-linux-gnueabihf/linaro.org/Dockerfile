@@ -1,9 +1,5 @@
 FROM debian:stable
 
-ARG MAJOR
-ARG MINOR
-ARG DATE
-
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
@@ -27,6 +23,10 @@ RUN apt-get install -y \
     wget \
     xz-utils
 
+ARG MAJOR
+ARG MINOR
+ARG DATE
+
 # toolchain
 RUN TOOLCHAIN="arm-linux-gnueabihf"; \
     ARCH="x86_64"; \
@@ -34,8 +34,11 @@ RUN TOOLCHAIN="arm-linux-gnueabihf"; \
     MIRROR="https://releases.linaro.org/components/toolchain/binaries"; \
     wget -O - "${MIRROR}/${MAJOR}-${DATE}/${TOOLCHAIN}/${ARCHIVE}.tar.xz" | \
         tar -C /opt -xJf - && \
-    mv /opt/${ARCHIVE} /opt/toolchain && \
-    cp -a /opt/toolchain/${TOOLCHAIN}/libc/lib/* /opt/toolchain/${TOOLCHAIN}/lib
+    mv /opt/${ARCHIVE} /opt/toolchain
+
+# libc
+RUN cp -a /opt/toolchain/arm-linux-gnueabihf/libc/lib/* \
+    /opt/toolchain/arm-linux-gnueabihf/lib
 
 # sysroot
 RUN ln -s /opt/toolchain/arm-linux-gnueabihf /opt/sysroot
