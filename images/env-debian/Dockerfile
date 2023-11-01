@@ -39,4 +39,4 @@ RUN apt-get install -y \
     git
 
 # rebuild font cache
-RUN fc-cache -fr
+RUN chmod a+w /var/cache/fontconfig
