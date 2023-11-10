@@ -5,3 +5,4 @@ DOCKERFILE;ARGS (comma-separated list);TAG
 20.04/Dockerfile;;
 22.04/Dockerfile;;
 22.04/Dockerfile;;latest
+nolibs/Dockerfile;;
