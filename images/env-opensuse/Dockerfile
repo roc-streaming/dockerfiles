@@ -1,8 +1,11 @@
 FROM opensuse/leap:latest
 
-# compilers
+# compilers and tools
 RUN zypper -n install \
-    gcc-c++
+    ccache \
+    gcc-c++ \
+    git \
+    python
 
 # for 3rd-parties
 RUN zypper -n install \
@@ -13,10 +16,9 @@ RUN zypper -n install \
     libtool \
     m4 \
     make \
-    pkg-config \
-    python
+    pkg-config
 
-# for Roc
+# for roc
 RUN zypper -n install \
     benchmark-devel \
     doxygen \
@@ -30,7 +32,3 @@ RUN zypper -n install \
     scons \
     sox-devel \
     speexdsp-devel
-
-# extras
-RUN zypper -n install \
-    git

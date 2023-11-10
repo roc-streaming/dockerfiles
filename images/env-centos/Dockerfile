@@ -2,9 +2,11 @@ FROM centos:7
 
 RUN yum -y install epel-release
 
-# compilers
+# compilers and tools
 RUN yum -y install \
-    gcc-c++
+    ccache \
+    gcc-c++ \
+    git
 
 # for 3rd-parties
 RUN yum -y install \
@@ -15,7 +17,7 @@ RUN yum -y install \
     make \
     pkgconfig
 
-# for Roc
+# for roc
 RUN yum -y install \
     gengetopt \
     libunwind-devel \

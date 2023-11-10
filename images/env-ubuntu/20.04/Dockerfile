@@ -4,18 +4,23 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
 
-# compilers
+# compilers and tools
 RUN apt-get install -y \
+    ccache \
     clang \
     clang-10 \
     clang-7 \
     clang-8 \
     clang-9 \
+    clang-format \
     g++ \
     g++-10 \
     g++-7 \
     g++-8 \
-    g++-9
+    g++-9 \
+    git \
+    python \
+    valgrind
 
 # for 3rd-parties
 RUN apt-get install -y \
@@ -26,10 +31,9 @@ RUN apt-get install -y \
     libtool \
     m4 \
     make \
-    pkg-config \
-    python
+    pkg-config
 
-# for Roc
+# for roc
 RUN apt-get install -y \
     doxygen \
     gengetopt \
@@ -45,9 +49,3 @@ RUN apt-get install -y \
     pulseaudio \
     ragel \
     scons
-
-# for extras
-RUN apt-get install -y  \
-    clang-format \
-    git \
-    valgrind

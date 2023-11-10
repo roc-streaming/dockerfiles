@@ -8,25 +8,37 @@ Docker images are built using Github Actions and then pushed to Docker Hub. The 
 
 Documentation for this process is [available here](https://roc-streaming.org/toolkit/docs/development/continuous_integration.html).
 
-To build image locally, run:
+To build image(s) locally, run:
 
 ```
-./make.sh [OPTIONS...] IMAGE[:TAG]
+./make.sh [OPTIONS...] IMAGE[:TAG]...
 ```
 
-For example:
+For example (build all tags of `env-ubuntu`):
 
 ```
 ./make.sh env-ubuntu
 ```
 
-Or:
+Or (build all tags of `env-fedora` and two specific tags of `env-ubuntu`):
 
 ```
-./make.sh env-ubuntu:22.04
+./make.sh env-fedora env-ubuntu:20.04 env-ubuntu:22.04
 ```
 
-For the list of available options, run:
+To build all images, run:
+
+```
+./make.sh [OPTIONS...]
+```
+
+Use `-n` flag to see what's going to happen without actually doing anything, for example:
+
+```
+./make.sh -n
+```
+
+For the full list of available options, run:
 
 ```
 ./make.sh --help

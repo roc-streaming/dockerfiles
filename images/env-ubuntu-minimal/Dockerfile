@@ -17,7 +17,7 @@ RUN apt-get install -y \
     libtool \
     make
 
-# for Roc
+# for roc
 RUN apt-get install -y \
     libasound2-dev \
     libpulse-dev \

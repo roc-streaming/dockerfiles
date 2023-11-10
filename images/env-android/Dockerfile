@@ -10,24 +10,18 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN dpkg --add-architecture i386
 
-RUN apt-get update
+RUN apt-get update -y
 
-# native compilers
+# native compilers and tools
 RUN apt-get install -y \
-    g++
-
-# tools
-RUN apt-get install -y \
-    gengetopt \
+    g++ \
     git \
     python \
-    ragel \
-    scons \
     sed \
     unzip \
     wget
 
-# Roc dependencies
+# for 3rd-parties
 RUN apt-get install -y \
     autoconf \
     automake \
@@ -38,7 +32,13 @@ RUN apt-get install -y \
     make \
     pkg-config
 
-# emulator dependencies
+# for roc
+RUN apt-get install -y \
+    gengetopt \
+    ragel \
+    scons
+
+# for emulator
 RUN apt-get install -y --no-install-recommends \
     lib32gcc1 \
     lib32ncurses6 \

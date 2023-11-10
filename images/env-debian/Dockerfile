@@ -4,9 +4,12 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
 
-# compilers
+# compilers and tools
 RUN apt-get install -y \
-    g++
+    ccache \
+    g++ \
+    git \
+    python3
 
 # for 3rd-parties
 RUN apt-get install -y \
@@ -17,10 +20,9 @@ RUN apt-get install -y \
     libtool \
     m4 \
     make \
-    pkg-config \
-    python3
+    pkg-config
 
-# for Roc
+# for roc
 RUN apt-get install -y \
     doxygen \
     gengetopt \
@@ -34,9 +36,6 @@ RUN apt-get install -y \
     ragel \
     scons
 
-# extras
-RUN apt-get install -y \
-    git
-
-# rebuild font cache
-RUN chmod a+w /var/cache/fontconfig
+# fix font cache
+RUN chmod a+w \
+    /var/cache/fontconfig

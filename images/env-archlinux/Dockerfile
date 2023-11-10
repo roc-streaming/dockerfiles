@@ -2,10 +2,13 @@ FROM archlinux:latest
 
 RUN pacman --noconfirm -Syu
 
-# compilers
+# compilers and tools
 RUN pacman --noconfirm -S \
+    ccache \
     gcc \
-    libffi
+    git \
+    libffi \
+    python
 
 # for 3rd-parties
 RUN pacman --noconfirm -S \
@@ -18,10 +21,9 @@ RUN pacman --noconfirm -S \
     libtool \
     m4 \
     make \
-    pkgconf \
-    python
+    pkgconf
 
-# for Roc
+# for roc
 RUN pacman --noconfirm -S \
     doxygen \
     gengetopt \
@@ -35,7 +37,3 @@ RUN pacman --noconfirm -S \
     scons \
     sox \
     speexdsp
-
-# extras
-RUN pacman --noconfirm -S \
-    git

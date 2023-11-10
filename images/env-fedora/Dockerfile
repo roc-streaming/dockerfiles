@@ -1,8 +1,11 @@
 FROM fedora:latest
 
-# compilers
+# compilers and tools
 RUN dnf install -y \
-    gcc-c++
+    ccache \
+    gcc-c++ \
+    git \
+    python
 
 # for 3rd-parties
 RUN dnf install -y \
@@ -13,10 +16,9 @@ RUN dnf install -y \
     libtool \
     m4 \
     make \
-    pkgconfig \
-    python
+    pkgconfig
 
-# for Roc
+# for roc
 RUN dnf install -y \
     doxygen \
     gengetopt \
@@ -30,7 +32,3 @@ RUN dnf install -y \
     scons \
     sox-devel \
     speexdsp-devel
-
-# extras
-RUN dnf install -y \
-    git

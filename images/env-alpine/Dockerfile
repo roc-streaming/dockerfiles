@@ -2,9 +2,13 @@ FROM alpine
 
 RUN apk update
 
-# compilers
+# compilers and tools
 RUN apk add \
-    g++
+    bash \
+    ccache \
+    g++ \
+    git \
+    python3
 
 # for 3rd-parties
 RUN apk add \
@@ -17,7 +21,7 @@ RUN apk add \
     make \
     pkgconfig
 
-# for Roc
+# for roc
 RUN apk add \
     cpputest \
     doxygen \
@@ -27,13 +31,7 @@ RUN apk add \
     libuv-dev \
     openssl-dev \
     pulseaudio-dev \
-    python3 \
     ragel \
     scons \
     sox-dev \
     speexdsp-dev
-
-# extras
-RUN apk add \
-    bash \
-    git

@@ -11,6 +11,7 @@ RUN apt-get install -y \
     autoconf \
     automake \
     automake1.11 \
+    ccache \
     cmake \
     g++ \
     gengetopt \

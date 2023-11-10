@@ -6,20 +6,15 @@ ARG NDK="21"
 
 RUN apt-get update
 
-# native compilers
+# native compilers and tools
 RUN apt-get install -y \
-    g++
-
-# tools
-RUN apt-get install -y \
-    gengetopt \
+    ccache \
+    g++ \
     python3 \
-    ragel \
-    scons \
     unzip \
     wget
 
-# Roc dependencies
+# for 3rd-parties
 RUN apt-get install -y \
     autoconf \
     automake \
@@ -29,6 +24,12 @@ RUN apt-get install -y \
     libtool \
     make \
     pkg-config
+
+# for roc
+RUN apt-get install -y \
+    gengetopt \
+    ragel \
+    scons
 
 # toolchain
 RUN wget -q -O /tmp/ndk.zip \
