@@ -38,6 +38,7 @@ RUN apt-get install -y \
     doxygen \
     gengetopt \
     graphviz \
+    libasound2-dev \
     libbenchmark-dev \
     libcpputest-dev \
     libpulse-dev \

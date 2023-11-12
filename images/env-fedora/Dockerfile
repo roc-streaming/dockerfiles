@@ -20,6 +20,7 @@ RUN dnf install -y \
 
 # for roc
 RUN dnf install -y \
+    alsa-lib-devel \
     doxygen \
     gengetopt \
     google-benchmark-devel \

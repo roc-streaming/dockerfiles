@@ -27,6 +27,7 @@ RUN apt-get install -y \
     doxygen \
     gengetopt \
     graphviz \
+    libasound2-dev \
     libbenchmark-dev \
     libpulse-dev \
     libsox-dev \

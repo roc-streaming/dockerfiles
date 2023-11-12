@@ -20,6 +20,7 @@ RUN zypper -n install \
 
 # for roc
 RUN zypper -n install \
+    alsa-devel \
     benchmark-devel \
     doxygen \
     gengetopt \

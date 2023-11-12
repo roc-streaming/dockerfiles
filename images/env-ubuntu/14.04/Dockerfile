@@ -30,6 +30,7 @@ RUN apt-get install -y \
     doxygen \
     gengetopt \
     graphviz \
+    libasound2-dev \
     libsox-dev \
     libspeexdsp-dev \
     libunwind8-dev \

@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN dpkg --add-architecture i386
 
-RUN apt-get update -y
+RUN apt-get update
 
 # native compilers and tools
 RUN apt-get install -y \

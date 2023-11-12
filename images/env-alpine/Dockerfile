@@ -23,6 +23,7 @@ RUN apk add \
 
 # for roc
 RUN apk add \
+    alsa-lib-dev \
     cpputest \
     doxygen \
     gengetopt \
