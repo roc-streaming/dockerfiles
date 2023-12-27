@@ -10,11 +10,16 @@ RUN apt-get install -y \
     clang \
     clang-13 \
     clang-14 \
+    clang-15 \
+    clang-16 \
+    clang-17 \
     clang-format \
     g++ \
+    g++-9 \
     g++-10 \
     g++-11 \
     g++-12 \
+    g++-13 \
     git \
     python3 \
     valgrind
