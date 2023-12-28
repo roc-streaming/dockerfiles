@@ -39,6 +39,7 @@ jobs:
           - env-ubuntu:18.04
           - env-ubuntu:20.04
           - env-ubuntu:22.04
+          - env-ubuntu:24.04
           - env-ubuntu:latest
           - env-ubuntu:nolibs
           - toolchain-aarch64-linux-gnu
