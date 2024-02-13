@@ -35,6 +35,7 @@ RUN apt-get install -y \
     libasound2-dev \
     libcpputest-dev \
     libpulse-dev \
+    libsndfile-dev \
     libsox-dev \
     libspeexdsp-dev \
     libunwind-dev \

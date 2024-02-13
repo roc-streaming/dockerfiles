@@ -28,6 +28,7 @@ RUN apk add \
     doxygen \
     gengetopt \
     graphviz \
+    libsndfile \
     libunwind-dev \
     libuv-dev \
     openssl-dev \

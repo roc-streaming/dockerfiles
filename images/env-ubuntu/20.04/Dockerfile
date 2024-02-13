@@ -42,6 +42,7 @@ RUN apt-get install -y \
     libbenchmark-dev \
     libcpputest-dev \
     libpulse-dev \
+    libsndfile-dev \
     libsox-dev \
     libspeexdsp-dev \
     libssl-dev \

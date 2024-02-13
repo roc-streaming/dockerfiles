@@ -25,6 +25,7 @@ RUN dnf install -y \
     gengetopt \
     google-benchmark-devel \
     graphviz \
+    libsndfile \
     libunwind-devel \
     libuv-devel \
     openssl-devel \

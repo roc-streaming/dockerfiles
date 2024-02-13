@@ -31,6 +31,7 @@ RUN apt-get install -y \
     gengetopt \
     graphviz \
     libasound2-dev \
+    libsndfile-dev \
     libsox-dev \
     libspeexdsp-dev \
     libunwind8-dev \

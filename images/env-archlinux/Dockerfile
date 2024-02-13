@@ -31,6 +31,7 @@ RUN pacman --noconfirm -S \
     graphviz \
     gsm \
     libpulse \
+    libsndfile \
     libunwind \
     libuv \
     openssl \

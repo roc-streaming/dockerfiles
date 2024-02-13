@@ -27,6 +27,7 @@ RUN zypper -n install \
     graphviz \
     libopenssl-3-devel \
     libpulse-devel \
+    libsndfile \
     libunwind-devel \
     libuv-devel \
     ragel \
