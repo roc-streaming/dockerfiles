@@ -8,7 +8,6 @@ RUN apt-get update
 RUN apt-get install -y \
     ccache \
     clang \
-    clang-13 \
     clang-14 \
     clang-15 \
     clang-16 \
