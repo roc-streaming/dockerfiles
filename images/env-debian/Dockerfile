@@ -30,6 +30,7 @@ RUN apt-get install -y \
     libasound2-dev \
     libbenchmark-dev \
     libpulse-dev \
+    libsndfile1-dev \
     libsox-dev \
     libspeexdsp-dev \
     libssl-dev \
