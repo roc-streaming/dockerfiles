@@ -22,7 +22,8 @@ RUN apt-get install -y \
     libtool \
     m4 \
     make \
-    pkg-config
+    pkg-config \
+    util-linux
 
 # for roc
 RUN apt-get install -y \

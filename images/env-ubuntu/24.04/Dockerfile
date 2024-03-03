@@ -33,7 +33,8 @@ RUN apt-get install -y \
     m4 \
     make \
     meson \
-    pkg-config
+    pkg-config \
+    util-linux
 
 # for roc
 RUN apt-get install -y \
