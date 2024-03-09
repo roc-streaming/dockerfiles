@@ -19,7 +19,8 @@ RUN apk add \
     libtool \
     m4 \
     make \
-    pkgconfig
+    pkgconfig \
+    util-linux-dev
 
 # for roc
 RUN apk add \

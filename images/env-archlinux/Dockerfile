@@ -21,7 +21,8 @@ RUN pacman --noconfirm -S \
     libtool \
     m4 \
     make \
-    pkgconf
+    pkgconf \
+    util-linux-libs
 
 # for roc
 RUN pacman --noconfirm -S \

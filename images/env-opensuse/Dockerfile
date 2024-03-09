@@ -14,6 +14,7 @@ RUN zypper -n install \
     cmake \
     intltool \
     libtool \
+    libuuid-devel \
     m4 \
     make \
     pkg-config

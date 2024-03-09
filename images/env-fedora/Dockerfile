@@ -14,6 +14,7 @@ RUN dnf install -y \
     cmake \
     intltool \
     libtool \
+    libuuid-devel \
     m4 \
     make \
     pkgconfig
