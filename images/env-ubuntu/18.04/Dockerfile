@@ -23,7 +23,7 @@ RUN apt-get install -y \
     m4 \
     make \
     pkg-config \
-    util-linux
+    uuid-dev
 
 # for roc
 RUN apt-get install -y \

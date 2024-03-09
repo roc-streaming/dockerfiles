@@ -22,7 +22,7 @@ RUN pacman --noconfirm -S \
     m4 \
     make \
     pkgconf \
-    util-linux
+    util-linux-libs
 
 # for roc
 RUN pacman --noconfirm -S \

@@ -30,8 +30,7 @@ RUN apt-get install -y \
     intltool \
     libtool \
     make \
-    pkg-config \
-    util-linux
+    pkg-config
 
 # for roc
 RUN apt-get install -y \

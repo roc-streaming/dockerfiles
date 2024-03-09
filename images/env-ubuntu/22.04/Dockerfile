@@ -32,7 +32,7 @@ RUN apt-get install -y \
     make \
     meson \
     pkg-config \
-    util-linux
+    uuid-dev
 
 # for roc
 RUN apt-get install -y \

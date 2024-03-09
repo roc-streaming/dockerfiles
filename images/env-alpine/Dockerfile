@@ -17,10 +17,10 @@ RUN apk add \
     cmake \
     intltool \
     libtool \
-    libuuid \
     m4 \
     make \
-    pkgconfig
+    pkgconfig \
+    util-linux-dev
 
 # for roc
 RUN apk add \
