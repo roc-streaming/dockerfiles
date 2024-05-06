@@ -31,7 +31,8 @@ RUN apt-get install -y \
     m4 \
     make \
     meson \
-    pkg-config
+    pkg-config \
+    uuid-dev
 
 # for roc
 RUN apt-get install -y \

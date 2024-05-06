@@ -20,7 +20,8 @@ RUN apt-get install -y \
     libtool \
     m4 \
     make \
-    pkg-config
+    pkg-config \
+    uuid-dev
 
 # for roc
 RUN apt-get install -y \
