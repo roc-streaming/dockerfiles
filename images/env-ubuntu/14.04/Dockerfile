@@ -12,7 +12,8 @@ RUN apt-get install -y \
     g++-4.4 \
     g++-4.6 \
     git \
-    python
+    python \
+    wget
 
 # for 3rd-parties
 RUN apt-get install -y \
