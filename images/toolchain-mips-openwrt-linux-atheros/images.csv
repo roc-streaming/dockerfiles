@@ -1,0 +1,4 @@
+DOCKERFILE;ARGS (comma-separated list);TAG
+12.09/Dockerfile;OPENWRT=12.09,UCLIBC=0.9.33.2,GCC=4.6;12.09
+17.01/Dockerfile;OPENWRT=17.01.7,MUSL=1.1.16,GCC=5.4.0;17.01
+17.01/Dockerfile;OPENWRT=17.01.7,MUSL=1.1.16,GCC=5.4.0;latest
