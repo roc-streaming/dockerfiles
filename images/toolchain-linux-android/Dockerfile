@@ -3,6 +3,7 @@ FROM debian:stable
 ENV DEBIAN_FRONTEND noninteractive
 
 ARG NDK="21"
+ARG PLATFORM="linux-x86_64"
 
 RUN apt-get update
 
@@ -33,7 +34,7 @@ RUN apt-get install -y \
 
 # toolchain
 RUN wget -q -O /tmp/ndk.zip \
-    "https://dl.google.com/android/repository/android-ndk-r${NDK}-linux-x86_64.zip" && \
+    "https://dl.google.com/android/repository/android-ndk-r${NDK}-${PLATFORM}.zip" && \
     ( cd /tmp && unzip -qq ndk.zip -d /opt) && \
     rm /tmp/ndk.zip
 

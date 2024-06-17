@@ -45,8 +45,8 @@ jobs:
           - toolchain-aarch64-linux-gnu
           - toolchain-arm-bcm2708hardfp-linux-gnueabi
           - toolchain-arm-linux-gnueabihf
-          - toolchain-linux-android
           - toolchain-mips-openwrt-linux-atheros
+          - toolchain-linux-android
 
     name: ${{ matrix.image }}
 
