@@ -35,3 +35,7 @@ RUN zypper -n install \
     scons \
     sox-devel \
     speexdsp-devel
+
+# for fontconfig
+ENV HOME=/home
+RUN chmod a+wx /home
