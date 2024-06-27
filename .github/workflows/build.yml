@@ -56,10 +56,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ env.CACHE_FROM }}
           key: ${{ matrix.image }}-${{ github.sha }}
@@ -94,7 +94,7 @@ jobs:
           mv ${CACHE_TO} ${CACHE_FROM}
 
       - name: Save cache
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         if: always()
         with:
           path: ${{ env.CACHE_FROM }}
