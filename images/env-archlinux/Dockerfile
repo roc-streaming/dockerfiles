@@ -27,6 +27,8 @@ RUN pacman --noconfirm -S \
 # for roc
 RUN pacman --noconfirm -S \
     alsa-lib \
+    benchmark \
+    cpputest \
     doxygen \
     gengetopt \
     graphviz \

@@ -30,6 +30,7 @@ RUN apt-get install -y \
     graphviz \
     libasound2-dev \
     libbenchmark-dev \
+    libcpputest-dev \
     libpulse-dev \
     libsndfile1-dev \
     libsox-dev \
