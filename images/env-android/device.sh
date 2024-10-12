@@ -2,7 +2,7 @@
 
 me=$(basename "$0")
 
-api="${API}"
+api="${API_LEVEL}"
 arch="x86_64"
 
 function usage() {
