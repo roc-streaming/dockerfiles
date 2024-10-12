@@ -25,9 +25,8 @@ jobs:
       matrix:
         image:
           - env-alpine
-          - env-android:jdk11
-          - env-android:jdk15
-          - env-android:jdk8
+          - env-android:jdk17
+          - env-android:jdk21
           - env-android:latest
           - env-archlinux
           - env-debian
