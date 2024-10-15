@@ -1,0 +1,1 @@
+FROM openpriv/flutter-desktop:windows-sdk30-fstable-3.22.2

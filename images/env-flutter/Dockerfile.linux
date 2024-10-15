@@ -1,0 +1,15 @@
+FROM openpriv/flutter-desktop:linux-fstable-3.22.2
+
+USER root
+ENV HOME=/root
+
+RUN git config --global --add safe.directory /sdks/flutter && \
+    flutter --disable-analytics && \
+    flutter config --no-cli-animations
+
+RUN find /sdks -type d -exec chmod a+rwx '{}' ';' && \
+    find /sdks -type f -exec chmod a+rw '{}' ';' && \
+    find /opt -type d -exec chmod a+rwx '{}' ';' && \
+    find /opt -type f -exec chmod a+rw '{}' ';' && \
+    find /root -type d -exec chmod a+rwx '{}' ';' && \
+    find /root -type f -exec chmod a+rw '{}' ';'

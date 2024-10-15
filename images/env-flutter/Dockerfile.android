@@ -1,0 +1,22 @@
+FROM ghcr.io/cirruslabs/flutter:stable
+
+USER root
+ENV HOME=/root
+ENV ANDROID_USER_HOME=/root/.android
+ENV GRADLE_USER_HOME=/root/.gradle
+
+RUN git config --global --add safe.directory /sdks/flutter && \
+    flutter --disable-analytics && \
+    flutter config --no-cli-animations
+
+RUN mkdir -p /root/.android && \
+    yes | keytool -genkey -v -keystore /root/.android/debug.keystore \
+    -alias androiddebugkey -storepass android -keypass android \
+    -keyalg RSA -validity 14000
+
+RUN find /sdks -type d -exec chmod a+rwx '{}' ';' && \
+    find /sdks -type f -exec chmod a+rw '{}' ';' && \
+    find /opt -type d -exec chmod a+rwx '{}' ';' && \
+    find /opt -type f -exec chmod a+rw '{}' ';' && \
+    find /root -type d -exec chmod a+rwx '{}' ';' && \
+    find /root -type f -exec chmod a+rw '{}' ';'

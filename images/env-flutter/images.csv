@@ -1,0 +1,4 @@
+DOCKERFILE;ARGS (comma-separated list);TAG;OS
+Dockerfile.android;;android;linux
+Dockerfile.linux;;linux;linux
+Dockerfile.windows;;windows;windows

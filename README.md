@@ -11,35 +11,35 @@ Documentation for this process is [available here](https://roc-streaming.org/too
 To build image(s) locally, run:
 
 ```
-./make.sh [OPTIONS...] IMAGE[:TAG]...
+./make.py [OPTIONS...] IMAGE[:TAG]...
 ```
 
 For example (build all tags of `env-ubuntu`):
 
 ```
-./make.sh env-ubuntu
+./make.py env-ubuntu
 ```
 
 Or (build all tags of `env-fedora` and two specific tags of `env-ubuntu`):
 
 ```
-./make.sh env-fedora env-ubuntu:20.04 env-ubuntu:22.04
+./make.py env-fedora env-ubuntu:20.04 env-ubuntu:22.04
 ```
 
 To build all images, run:
 
 ```
-./make.sh [OPTIONS...]
+./make.py [OPTIONS...]
 ```
 
 Use `-n` flag to see what's going to happen without actually doing anything, for example:
 
 ```
-./make.sh -n
+./make.py -n
 ```
 
 For the full list of available options, run:
 
 ```
-./make.sh --help
+./make.py --help
 ```

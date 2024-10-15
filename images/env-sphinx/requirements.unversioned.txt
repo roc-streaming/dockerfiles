@@ -1,4 +1,5 @@
 # Requirements file used to install latest, which we then freeze.
-Sphinx
 breathe
+mkdocs
+Sphinx
 sphinxemoji

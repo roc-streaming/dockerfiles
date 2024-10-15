@@ -17,7 +17,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  images:
+  linux-images:
     runs-on: ubuntu-latest
 
     strategy:
@@ -31,6 +31,8 @@ jobs:
           - env-archlinux
           - env-debian
           - env-fedora
+          - env-flutter:android
+          - env-flutter:linux
           - env-opensuse
           - env-sphinx
           - env-ubuntu:14.04
@@ -47,29 +49,27 @@ jobs:
           - toolchain-mips-openwrt-linux-atheros
           - toolchain-linux-android
 
-    name: ${{ matrix.image }}
+    name: linux/${{ matrix.image }}
 
     env:
-      CACHE_FROM: /tmp/.buildx-cache
-      CACHE_TO: /tmp/.buildx-cache-new
+      CACHE_FROM: /tmp/dockercache
+      CACHE_TO: /tmp/dockercache-new
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup cache
-        uses: actions/cache@v4
+      - name: Restore cache
+        uses: actions/cache/restore@v4
         with:
           path: ${{ env.CACHE_FROM }}
-          key: ${{ matrix.image }}-${{ github.sha }}
-          restore-keys: |
-            ${{ matrix.image }}-
+          key: ${{ runner.os }}-${{ matrix.image }}
 
       - name: Setup buildx
         run: |
           docker buildx create --use
 
-      - name: Setup env
+      - name: Detect env
         if: |
           github.repository_owner == 'roc-streaming' &&
           github.event_name == 'push' &&
@@ -79,22 +79,93 @@ jobs:
 
       - name: Run docker
         run: |
+          set -x
           if [[ $ENABLE_PUSH = 1 ]]; then \
             docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
-            ./make.sh --push ${{ matrix.image }}
+            ./make.py --push \
+              --cache-from=${{ env.CACHE_FROM }} --cache-to=${{ env.CACHE_TO }} \
+              ${{ matrix.image }}
           else
-            ./make.sh ${{ matrix.image }}
+            ./make.py \
+              --cache-from=${{ env.CACHE_FROM }} --cache-to=${{ env.CACHE_TO }} \
+              ${{ matrix.image }}
           fi
-
-      - name: Move cache
-        if: always()
-        run: |
-          rm -rf ${CACHE_FROM}
-          mv ${CACHE_TO} ${CACHE_FROM}
 
       - name: Save cache
         uses: actions/cache/save@v4
         if: always()
         with:
-          path: ${{ env.CACHE_FROM }}
-          key: ${{ matrix.image }}-${{ github.sha }}
+          path: ${{ env.CACHE_TO }}
+          key: ${{ runner.os }}-${{ matrix.image }}-${{ github.sha }}
+
+  windows-images:
+    runs-on: windows-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - env-flutter
+
+    name: windows/${{ matrix.image }}
+
+    env:
+      CACHE_DIR: C:\dockercache
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restore cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.CACHE_DIR }}
+          key: ${{ runner.os }}-${{ matrix.image }}
+
+      - name: Load images
+        run: |
+          Set-PSDebug -Trace 1
+          if (Test-Path -Path ${{ env.CACHE_DIR }}\rocstreaming) {
+            Get-ChildItem -Path ${{ env.CACHE_DIR }}\rocstreaming -Filter *.tar | ForEach-Object {
+              docker load -i $_.FullName
+              Remove-Item $_.FullName
+            }
+          }
+
+      - name: Detect env
+        if: |
+          github.repository_owner == 'roc-streaming' &&
+          github.event_name == 'push' &&
+          github.ref == 'refs/heads/main'
+        run: |
+          echo "ENABLE_PUSH=1" >> $env:GITHUB_ENV
+
+      - name: Run docker
+        run: |
+          Set-PSDebug -Trace 1
+          if ($env:ENABLE_PUSH -eq "1") {
+            docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+            python make.py --push ${{ matrix.image }}
+          } else {
+            python make.py ${{ matrix.image }}
+          }
+
+      - name: Save images
+        if: always()
+        run: |
+          Set-PSDebug -Trace 1
+          New-Item -ItemType Directory -Path ${{ env.CACHE_DIR }}\rocstreaming -Force `
+            -ErrorAction SilentlyContinue
+          docker images --format '{{.Repository}}:{{.Tag}}' `
+            | Select-String -Pattern "^rocstreaming/${{ matrix.image }}(:|$)" | ForEach-Object {
+              $image = $_.ToString()
+              $file = $image -Replace ":", "-"
+              docker save $image -o "${{ env.CACHE_DIR }}\$file.tar"
+          }
+
+      - name: Save cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: ${{ env.CACHE_DIR }}
+          key: ${{ runner.os }}-${{ matrix.image }}-${{ github.sha }}
