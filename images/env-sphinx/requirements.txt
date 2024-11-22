@@ -21,7 +21,7 @@ Pygments==2.16.1
 python-dateutil==2.9.0.post0
 PyYAML==6.0.2
 pyyaml_env_tag==0.1
-requests==2.31.0
+requests==2.32.2
 SCons==4.0.1
 six==1.16.0
 snowballstemmer==2.2.0
