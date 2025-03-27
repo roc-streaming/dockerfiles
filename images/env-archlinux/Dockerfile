@@ -42,3 +42,7 @@ RUN pacman --noconfirm -S \
     scons \
     sox \
     speexdsp
+
+# for fontconfig
+ENV HOME=/home
+RUN chmod a+wx /home
