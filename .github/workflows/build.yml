@@ -12,8 +12,11 @@ on:
   schedule:
     - cron: '0 0 1 * *'
 
+permissions:
+  contents: read
+
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: build-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -81,7 +84,8 @@ jobs:
         run: |
           set -x
           if [[ $ENABLE_PUSH = 1 ]]; then \
-            docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+            echo "${{ secrets.DOCKER_PASSWORD }}" \
+              | docker login --username "${{ secrets.DOCKER_USER }}" --password-stdin
             ./make.py --push \
               --cache-from=${{ env.CACHE_FROM }} --cache-to=${{ env.CACHE_TO }} \
               ${{ matrix.image }}
@@ -144,7 +148,9 @@ jobs:
         run: |
           Set-PSDebug -Trace 1
           if ($env:ENABLE_PUSH -eq "1") {
-            docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+            $username = "${{ secrets.DOCKER_USER }}"
+            $password = "${{ secrets.DOCKER_PASSWORD }}"
+            $password | docker login --username $username --password-stdin
             python make.py --push ${{ matrix.image }}
           } else {
             python make.py ${{ matrix.image }}
