@@ -11,4 +11,5 @@ ADD requirements.txt /home/ubuntu
 RUN pip3 install -r requirements.txt
 
 # node.js packages
+ADD npm-packages.txt /home/ubuntu
 RUN npm install -g `cat npm-packages.txt`
