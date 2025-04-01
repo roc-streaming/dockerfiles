@@ -1,5 +1,12 @@
 # Requirements file used to install latest, which we then freeze.
-breathe
-mkdocs
+
+# sphinx
 Sphinx
+breathe
 sphinxemoji
+
+# mkdocs
+mkdocs
+mkdocs-material
+mkdocs-material-extensions
+pymdown-extensions
