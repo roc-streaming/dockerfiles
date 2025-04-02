@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 WORKDIR /home/ubuntu
 
@@ -8,7 +8,7 @@ RUN apt-get update && apt-get -y install \
 
 # python packages
 ADD requirements.txt /home/ubuntu
-RUN pip3 install -r requirements.txt
+RUN pip3 install --break-system-packages -r requirements.txt
 
 # node.js packages
 ADD npm-packages.txt /home/ubuntu
