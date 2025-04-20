@@ -7,6 +7,7 @@ RUN apt-get update
 # compilers and tools
 RUN apt-get install -y \
     ccache \
+    clang \
     clang-3.5 \
     clang-3.6 \
     clang-3.7 \

@@ -7,6 +7,7 @@ RUN apt-get update
 # compilers and tools
 RUN apt-get install -y \
     ccache \
+    clang \
     clang-6.0 \
     clang-7 \
     clang-8 \
