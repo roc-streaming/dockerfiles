@@ -1,7 +1,7 @@
 FROM debian:stable
 
 ARG OPENWRT
-ARG UCLIBC
+ARG MUSL
 ARG GCC
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -27,7 +27,8 @@ RUN apt-get install -y \
     ragel \
     scons \
     unzip \
-    wget
+    wget \
+    zstd
 
 # toolchain dependencies
 RUN apt-get install -y \
@@ -36,22 +37,20 @@ RUN apt-get install -y \
     zlib1g:i386
 
 # toolchain
-RUN TOOLCHAIN="mips-atheros-openwrt-linux-uclibc"; \
-    TARGET="atheros/generic"; \
-    ARCHIVE="OpenWrt-Toolchain-atheros-for-mips-gcc-${GCC}-linaro_uClibc-${UCLIBC}"; \
-    MIRROR="https://archive.openwrt.org/attitude_adjustment"; \
-    wget -O - "${MIRROR}/${OPENWRT}/${TARGET}/${ARCHIVE}.tar.bz2" | \
-        tar -C /opt -xjf - && \
-    mv /opt/${ARCHIVE}/toolchain-* /opt/toolchain && \
+RUN TOOLCHAIN="mips-atheros-openwrt-linux-musl"; \
+    TARGET="ath79/generic"; \
+    ARCHIVE="openwrt-toolchain-${OPENWRT}-ath79-generic_gcc-${GCC}_musl.Linux-x86_64"; \
+    MIRROR="https://archive.openwrt.org/releases"; \
+    wget -O - "${MIRROR}/${OPENWRT}/targets/${TARGET}/${ARCHIVE}.tar.zst" | \
+        tar -C /opt --zstd -xf - && \
+    mv /opt/${ARCHIVE}/toolchain-mips_24kc_gcc-${GCC}_musl /opt/toolchain && \
     rm -rf /opt/${ARCHIVE}
 
 # sysroot
-RUN ln -s /opt/toolchain/mips-openwrt-linux-uclibc \
-    /opt/sysroot
+RUN ln -s /opt/toolchain/mips-openwrt-linux-musl /opt/sysroot
 
 # staging
-RUN mkdir -p /opt/staging
-ENV STAGING_DIR=/opt/staging
+ENV STAGING_DIR=/opt
 
 # path
 ENV PATH="/opt/toolchain/bin:${PATH}"

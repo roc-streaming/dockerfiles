@@ -1,4 +1,5 @@
 DOCKERFILE;ARGS (comma-separated list);TAG
-linaro.org/Dockerfile;MAJOR=7.4,MINOR=1,DATE=2019.02;gcc-7.4
-linaro.org/Dockerfile;MAJOR=7.4,MINOR=1,DATE=2019.02;latest
-arm.com/Dockerfile;VERSION=10.3,DATE=2021.07;gcc-10.3
+legacy/linaro.org/Dockerfile;MAJOR=7.4,MINOR=1,DATE=2019.02;gcc-7.4
+legacy/linaro.org/Dockerfile;MAJOR=7.4,MINOR=1,DATE=2019.02;latest
+legacy/arm.com/Dockerfile;VERSION=10.3,DATE=2021.07;gcc-10.3
+Dockerfile;VERSION=14.2.rel1;gcc-14.2

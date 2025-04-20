@@ -1,23 +1,25 @@
 FROM ubuntu:20.04
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
 # compilers and tools
 RUN apt-get install -y \
     ccache \
-    clang \
-    clang-10 \
+    clang-6.0 \
     clang-7 \
     clang-8 \
     clang-9 \
+    clang-10 \
+    clang-11 \
+    clang-12 \
     clang-format \
     g++ \
-    g++-10 \
     g++-7 \
     g++-8 \
     g++-9 \
+    g++-10 \
     git \
     python \
     valgrind

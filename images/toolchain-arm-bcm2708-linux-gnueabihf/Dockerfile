@@ -1,8 +1,9 @@
 FROM debian:stable
 
-ARG COMMIT
+ARG DIR
+ARG NAME
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN dpkg --add-architecture i386
 RUN apt-get update
@@ -34,15 +35,16 @@ RUN apt-get install -y \
     zlib1g:i386
 
 # toolchain
-RUN wget -O /tmp/tools.zip \
+RUN COMMIT=439b6198a9b340de5998dd14a26a0d9d38a6bcac; \
+    wget -O /tmp/tools.zip \
     https://codeload.github.com/raspberrypi/tools/zip/${COMMIT} && \
     unzip /tmp/tools.zip -d /tmp && \
-    mv /tmp/tools-${COMMIT}/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi /opt/toolchain && \
+    mv /tmp/tools-${COMMIT}/arm-bcm2708/${DIR} /opt/toolchain && \
     rm -rf /tmp/tools-${COMMIT} && \
     rm /tmp/tools.zip
 
 # sysroot
-RUN ln -s /opt/toolchain/arm-bcm2708hardfp-linux-gnueabi /opt/sysroot
+RUN ln -s /opt/toolchain/${NAME} /opt/sysroot
 
 # path
 ENV PATH="/opt/toolchain/bin:${PATH}"

@@ -1,14 +1,20 @@
 FROM ubuntu:16.04
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
 # compilers and tools
 RUN apt-get install -y \
     ccache \
+    clang-3.5 \
     clang-3.6 \
     clang-3.7 \
+    clang-3.8 \
+    clang-3.9 \
+    clang-4.0 \
+    clang-5.0 \
+    clang-6.0 \
     g++ \
     g++-4.8 \
     g++-4.9 \

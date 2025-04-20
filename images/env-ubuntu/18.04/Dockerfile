@@ -1,15 +1,25 @@
 FROM ubuntu:18.04
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
 # compilers and tools
 RUN apt-get install -y \
     ccache \
+    clang-3.9 \
+    clang-4.0 \
+    clang-5.0 \
     clang-6.0 \
+    clang-7 \
+    clang-8 \
+    clang-9 \
+    clang-10 \
     g++ \
+    g++-5 \
     g++-6 \
+    g++-7 \
+    g++-8 \
     git \
     python
 

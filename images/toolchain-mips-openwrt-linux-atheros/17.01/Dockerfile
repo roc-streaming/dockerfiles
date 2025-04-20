@@ -4,7 +4,7 @@ ARG OPENWRT
 ARG MUSL
 ARG GCC
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN dpkg --add-architecture i386
 RUN apt-get update

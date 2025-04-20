@@ -1,19 +1,20 @@
 FROM ubuntu:22.04
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
 # compilers and tools
 RUN apt-get install -y \
     ccache \
-    clang \
     clang-11 \
     clang-12 \
     clang-13 \
     clang-14 \
+    clang-15 \
     clang-format \
     g++ \
+    g++-9 \
     g++-10 \
     g++-11 \
     g++-12 \

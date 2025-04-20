@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
@@ -8,9 +8,7 @@ RUN apt-get update
 RUN apt-get install -y \
     ccache \
     clang-3.4 \
-    g++ \
-    g++-4.4 \
-    g++-4.6 \
+    g++-4.8 \
     git \
     python \
     wget

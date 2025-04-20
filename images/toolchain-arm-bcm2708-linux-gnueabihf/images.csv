@@ -1,0 +1,4 @@
+DOCKERFILE;ARGS (comma-separated list);TAG
+;DIR=arm-bcm2708hardfp-linux-gnueabi,NAME=arm-bcm2708hardfp-linux-gnueabi;gcc-4.7
+;DIR=arm-rpi-4.9.3-linux-gnueabihf,NAME=arm-linux-gnueabihf;gcc-4.9
+;DIR=arm-rpi-4.9.3-linux-gnueabihf,NAME=arm-linux-gnueabihf;latest

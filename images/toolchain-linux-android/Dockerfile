@@ -1,6 +1,6 @@
 FROM debian:stable
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 ARG NDK="21"
 ARG PLATFORM="linux-x86_64"

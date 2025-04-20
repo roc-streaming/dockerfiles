@@ -47,10 +47,10 @@ jobs:
           - env-ubuntu:latest
           - env-ubuntu:nolibs
           - toolchain-aarch64-linux-gnu
-          - toolchain-arm-bcm2708hardfp-linux-gnueabi
+          - toolchain-arm-bcm2708-linux-gnueabihf
           - toolchain-arm-linux-gnueabihf
-          - toolchain-mips-openwrt-linux-atheros
           - toolchain-linux-android
+          - toolchain-mips-openwrt-linux-atheros
 
     name: linux/${{ matrix.image }}
 

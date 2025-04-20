@@ -1,17 +1,18 @@
 FROM ubuntu:24.04
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
 # compilers and tools
 RUN apt-get install -y \
     ccache \
-    clang \
     clang-14 \
     clang-15 \
     clang-16 \
     clang-17 \
+    clang-18 \
+    clang-19 \
     clang-format \
     g++ \
     g++-9 \
@@ -19,6 +20,7 @@ RUN apt-get install -y \
     g++-11 \
     g++-12 \
     g++-13 \
+    g++-14 \
     git \
     python3 \
     valgrind

@@ -1,6 +1,6 @@
 FROM debian:stable
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 
@@ -28,7 +28,7 @@ ARG VERSION
 ARG DATE
 
 # toolchain
-RUN TOOLCHAIN="arm-none-linux-gnueabihf"; \
+RUN TOOLCHAIN="aarch64-none-linux-gnu"; \
     ARCH="x86_64"; \
     ARCHIVE="gcc-arm-${VERSION}-${DATE}-${ARCH}-${TOOLCHAIN}"; \
     MIRROR="https://developer.arm.com/-/media/Files/downloads"; \
@@ -37,11 +37,14 @@ RUN TOOLCHAIN="arm-none-linux-gnueabihf"; \
     mv /opt/${ARCHIVE} /opt/toolchain
 
 # libc
-RUN cp -a /opt/toolchain/arm-none-linux-gnueabihf/libc/lib/* \
-    /opt/toolchain/arm-none-linux-gnueabihf/lib
+RUN cp -a /opt/toolchain/aarch64-none-linux-gnu/libc/lib/* \
+    /opt/toolchain/aarch64-none-linux-gnu/lib && \
+    cp -a /opt/toolchain/aarch64-none-linux-gnu/libc/lib64/* \
+    /opt/toolchain/aarch64-none-linux-gnu/lib64
 
 # sysroot
-RUN ln -s /opt/toolchain/arm-none-linux-gnueabihf /opt/sysroot
+RUN ln -s /opt/toolchain/aarch64-none-linux-gnu \
+    /opt/sysroot
 
 # path
 ENV PATH="/opt/toolchain/bin:${PATH}"
