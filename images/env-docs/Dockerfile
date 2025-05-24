@@ -24,4 +24,4 @@ RUN cat go-packages.txt | xargs -I {} go install {}
 # setup
 ENV HOME=/home/ubuntu
 RUN mkdir /home/ubuntu/.npm && \
-    chmod a+rwx /home/ubuntu/.npm
+    chmod -R a+rwx /home/ubuntu/.npm
