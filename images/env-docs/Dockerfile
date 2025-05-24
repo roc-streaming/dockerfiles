@@ -16,7 +16,12 @@ ADD npm-packages.txt /home/ubuntu
 RUN npm install -g `cat npm-packages.txt`
 
 # golang packages
-ENV GOPATH=/home/ubuntu/go
-ENV PATH=$PATH:/home/ubuntu/go/bin
+ENV GOPATH=/usr/local/go
+ENV PATH=$PATH:/usr/local/go/bin
 ADD go-packages.txt /home/ubuntu
 RUN cat go-packages.txt | xargs -I {} go install {}
+
+# setup
+ENV HOME=/home/ubuntu
+RUN mkdir /home/ubuntu/.npm && \
+    chmod a+rwx /home/ubuntu/.npm
