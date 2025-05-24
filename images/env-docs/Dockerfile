@@ -4,7 +4,8 @@ WORKDIR /home/ubuntu
 
 # system packages
 RUN apt-get update && apt-get -y install \
-    scons doxygen graphviz python3-pip python3-gdbm nodejs npm golang-go
+    scons doxygen graphviz python3-pip python3-gdbm nodejs npm golang-go \
+    entr expect
 
 # python packages
 ADD requirements.txt /home/ubuntu

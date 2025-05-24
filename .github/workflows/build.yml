@@ -33,11 +33,11 @@ jobs:
           - env-android:latest
           - env-archlinux
           - env-debian
+          - env-docs
           - env-fedora
           - env-flutter:android
           - env-flutter:linux
           - env-opensuse
-          - env-sphinx
           - env-ubuntu:14.04
           - env-ubuntu:16.04
           - env-ubuntu:18.04
