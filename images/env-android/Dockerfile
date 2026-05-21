@@ -1,4 +1,4 @@
-ARG OPENJDK="openjdk:17-jdk-slim-buster"
+ARG OPENJDK="eclipse-temurin:17-jdk-jammy"
 FROM $OPENJDK
 
 ARG API_LEVEL="29"
@@ -25,7 +25,6 @@ RUN apt-get install -y \
 RUN apt-get install -y \
     autoconf \
     automake \
-    automake1.11 \
     cmake \
     intltool \
     libtool \
