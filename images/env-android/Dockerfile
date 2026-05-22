@@ -16,7 +16,7 @@ RUN apt-get update
 RUN apt-get install -y \
     g++ \
     git \
-    python \
+    python3 \
     sed \
     unzip \
     wget
@@ -39,13 +39,12 @@ RUN apt-get install -y \
 
 # for emulator
 RUN apt-get install -y --no-install-recommends \
-    lib32gcc1 \
+    lib32gcc-s1 \
     lib32ncurses6 \
     lib32z1 \
     libc6:i386 \
     libncurses5:i386 \
     libstdc++6:i386 \
-    qt5-default \
     zlib1g:i386
 
 ENV ANDROID_SDK_ROOT=/sdk
