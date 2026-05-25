@@ -35,7 +35,6 @@ jobs:
           - env-debian
           - env-docs
           - env-fedora
-          - env-flutter:android
           - env-flutter:linux
           - env-opensuse
           - env-ubuntu:14.04
